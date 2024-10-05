@@ -10,6 +10,8 @@ enum TokenType {
     TOK_EQL, // equal
     TOK_INT, // integer
     TOK_OPR, // operator
+    TOK_PRT, // parenthesis
+    TOK_CBK, // curly bracket
     TOK_EOF  // end of file
 };
 

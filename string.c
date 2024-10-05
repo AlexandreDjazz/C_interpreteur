@@ -9,7 +9,7 @@ int my_strlen(const char *str) {
 }
 
 char *initialize_string(char *commands) {
-    const size_t length = 100;
+    const size_t length = 1000;
     char instruction[length];
     int size = 0;
 

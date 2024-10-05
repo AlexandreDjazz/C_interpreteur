@@ -18,6 +18,12 @@ void lexer(const char *commands) {
             case TOK_EQL:
                 printf("Equal : %s\n", token.value);
             break;
+            case TOK_PRT:
+                printf("Parenthesis : %s\n", token.value);
+            break;
+            case TOK_CBK:
+                printf("Curly bracket : %s\n", token.value);
+            break;
             default:
                 break;
         }

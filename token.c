@@ -49,6 +49,26 @@ Token isEqual(int position, int *index, const char *commands, Token token) {
     return token;
 }
 
+Token isParenthesis(int position, int *index, const char *commands, Token token) {
+    token.value = realloc(token.value, sizeof(char) * 2);
+    token.value[0] = commands[position];
+    token.value[1] = '\0';
+    token.type = TOK_PRT;
+    position++;
+    *index = position;
+    return token;
+}
+
+Token isCurlyBracket(int position, int *index, const char *commands, Token token) {
+    token.value = realloc(token.value, sizeof(char) * 2);
+    token.value[0] = commands[position];
+    token.value[1] = '\0';
+    token.type = TOK_CBK;
+    position++;
+    *index = position;
+    return token;
+}
+
 Token get_Token(int *index, const char *commands) {
     Token token = {NULL, TOK_EOF};
     int position = *index;
@@ -60,8 +80,13 @@ Token get_Token(int *index, const char *commands) {
         return token = isInteger(position, index, commands, token);
     if ((commands[position] >= 'A' && commands[position] <= 'Z') || (commands[position] >= 'a' && commands[position] <= 'z'))
         return token = isVariable(position, index, commands, token);
-    if ((commands[position] == '+') || (commands[position] == '-') || (commands[position] == '*') || (commands[position] == '/'))
+    if ((commands[position] == '+') || (commands[position] == '-') || (commands[position] == '*') ||
+        (commands[position] == '/') || (commands[position] == '>') || (commands[position] == '<'))
         return token = isOperator(position, index, commands, token);
+    if (commands[position] == '(' || commands[position] == ')')
+        return token = isParenthesis(position, index, commands, token);
+    if (commands[position] == '{' || commands[position] == '}')
+        return token = isCurlyBracket(position, index, commands, token);
     if (commands[position] == '=')
         return token = isEqual(position, index, commands, token);
 

@@ -21,6 +21,8 @@ Token isInteger(int position, int *index, const char *commands, Token token);
 Token isVariable(int position, int *index, const char *commands, Token token);
 Token isOperator(int position, int *index, const char *commands, Token token);
 Token isEqual(int position, int *index, const char *commands, Token token);
+Token isParenthesis(int position, int *index, const char *commands, Token token);
+Token isCurlyBracket(int position, int *index, const char *commands, Token token);
 Token get_Token(int *index, const char *commands);
 
 #endif
