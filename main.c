@@ -1,4 +1,4 @@
-#include "interpreter.h"
+#include "header/include.h"
 
 int main(const int ac, char **av)
 {
@@ -8,17 +8,14 @@ int main(const int ac, char **av)
         printf("Too many arguments\n");
         return -1;
     }
-
-    else if (ac == 2) {
-        if ((commands = check_and_copy_file(commands, av)) == NULL) {
-            free(commands);
+    if (ac == 2) {
+        if ((commands = check_and_copy_file(commands, av)) == NULL)
             return -1;
-        }
     }
-    printf("%s\n", commands); //vérif lecture et copie fichier ok
+    else
+        commands = initialize_string(commands);
 
-    //else
-        // read terminal
-
+    lexer(commands);
+    free(commands);
     return 0;
 }
