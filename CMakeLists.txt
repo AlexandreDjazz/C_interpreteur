@@ -3,5 +3,10 @@ project(interpreteur C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(interpreteur main.c
-        file.c)
+add_executable(interpreteur
+        main.c
+        file.c
+        ast.c
+        ast.c
+
+)
