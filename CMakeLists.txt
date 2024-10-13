@@ -4,4 +4,13 @@ project(interpreteur C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(interpreteur main.c
-        file.c)
+        file.c
+        lexer.c
+        header/include.h
+        header/structures.h
+        header/prototypes.h
+        string.c
+        token.c
+        main.c
+        parser.c
+        stack.c)

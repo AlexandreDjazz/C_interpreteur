@@ -1,6 +1,6 @@
-#include "interpreter.h"
+#include "header/include.h"
 
-long get_Size_File(FILE *str) {
+long get_file_size(FILE *str) {
 
     long size = 0;
 
@@ -33,7 +33,7 @@ char *check_and_copy_file(char *commands, char **av) {
         return NULL;
     }
 
-    size = get_Size_File(file_commands);
+    size = get_file_size(file_commands);
     commands = malloc(sizeof(char) * (size + 1));
     commands = copy_file(commands, file_commands);
     fclose(file_commands);

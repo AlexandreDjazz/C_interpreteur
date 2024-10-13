@@ -5,6 +5,15 @@
 -- Check for working C compiler: C:/Program Files/JetBrains/CLion 2024.2.2/bin/mingw/bin/gcc.exe - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Configuring done (0.9s)
--- Generating done (0.0s)
--- Build files have been written to: C:/Users/brice/GitHub/C_interpreteur/cmake-build-debug
+-- Configuring done (0.6s)
+CMake Error at CMakeLists.txt:6 (add_executable):
+  Cannot find source file:
+
+    parser.c
+
+
+CMake Error at CMakeLists.txt:6 (add_executable):
+  No SOURCES given to target: interpreteur
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
