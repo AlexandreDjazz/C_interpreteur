@@ -9,7 +9,12 @@ enum TokenType {
     TOK_VAR, // variable
     TOK_EQL, // equal
     TOK_INT, // integer
-    TOK_OPR, // operator
+    TOK_PLS, // plus
+    TOK_MNS, // minus
+    TOK_MUL, // multiply
+    TOK_DVD, // divide
+    TOK_LOW, // lower
+    TOK_SUP, // superior
     TOK_PRT, // parenthesis
     TOK_CBK, // curly bracket
     TOK_EOF  // end of file
@@ -20,13 +25,5 @@ struct Token {
     char *value;
     TokenType type;
 };
-
-typedef struct {
-        char *data;
-        int top;      // Index du sommet de la pile
-        int capacity; // Capacité maximale de la pile
-    } Stack;
-
-
 
 #endif

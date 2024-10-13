@@ -33,7 +33,30 @@ Token isOperator(int position, int *index, const char *commands, Token token) {
     token.value = realloc(token.value, sizeof(char) * 2);
     token.value[0] = commands[position];
     token.value[1] = '\0';
-    token.type = TOK_OPR;
+
+    switch (token.value[0]) {
+        case '+':
+            token.type = TOK_PLS;
+        break;
+        case '-':
+            token.type = TOK_MNS;
+        break;
+        case '*':
+            token.type = TOK_MUL;
+        break;
+        case '/':
+            token.type = TOK_DVD;
+        break;
+        case '<':
+            token.type = TOK_LOW;
+        break;
+        case '>':
+            token.type = TOK_SUP;
+        break;
+        default:
+            break;
+    }
+
     position++;
     *index = position;
     return token;
