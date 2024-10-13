@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/brice/CLionProjects/interpreteur/last OK/interpreteur/cmake-build-debug",
-		"source" : "C:/Users/brice/CLionProjects/interpreteur/last OK/interpreteur"
+		"build" : "C:/Users/brice/GitHub/C_interpreteur/cmake-build-debug",
+		"source" : "C:/Users/brice/GitHub/C_interpreteur"
 	},
 	"version" : 
 	{

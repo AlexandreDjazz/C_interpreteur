@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/brice/CLionProjects/interpreteur/last OK/interpreteur/cmake-build-debug"
+			"value" : "c:/Users/brice/GitHub/C_interpreteur/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -431,7 +431,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/brice/CLionProjects/interpreteur/last OK/interpreteur/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/brice/GitHub/C_interpreteur/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -503,7 +503,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/brice/CLionProjects/interpreteur/last OK/interpreteur"
+			"value" : "C:/Users/brice/GitHub/C_interpreteur"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1147,7 +1147,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/brice/CLionProjects/interpreteur/last OK/interpreteur/cmake-build-debug"
+			"value" : "C:/Users/brice/GitHub/C_interpreteur/cmake-build-debug"
 		},
 		{
 			"name" : "interpreteur_IS_TOP_LEVEL",
@@ -1171,7 +1171,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/brice/CLionProjects/interpreteur/last OK/interpreteur"
+			"value" : "C:/Users/brice/GitHub/C_interpreteur"
 		}
 	],
 	"kind" : "cache",

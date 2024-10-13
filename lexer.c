@@ -12,7 +12,12 @@ void lexer(const char *commands) {
             case TOK_VAR:
                 printf("Variable : %s\n", token.value);
             break;
-            case TOK_OPR:
+            case TOK_PLS:
+            case TOK_MNS:
+            case TOK_MUL:
+            case TOK_DVD:
+            case TOK_LOW:
+            case TOK_SUP:
                 printf("Operator : %s\n", token.value);
             break;
             case TOK_EQL:
