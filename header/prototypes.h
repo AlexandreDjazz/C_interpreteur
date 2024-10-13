@@ -25,4 +25,14 @@ Token isParenthesis(int position, int *index, const char *commands, Token token)
 Token isCurlyBracket(int position, int *index, const char *commands, Token token);
 Token get_Token(int *index, const char *commands);
 
+Stack* createStack(int capacity);
+int isEmpty(Stack* stack);
+int isFull(Stack* stack);
+void push(Stack* stack, char op);
+char pop(Stack* stack);
+char peek(Stack* stack);
+int precedence(char op);
+
+void shuntingYard(const char* expression);
+
 #endif

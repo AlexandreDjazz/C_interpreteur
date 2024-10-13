@@ -21,4 +21,12 @@ struct Token {
     TokenType type;
 };
 
+typedef struct {
+        char *data;
+        int top;      // Index du sommet de la pile
+        int capacity; // Capacité maximale de la pile
+    } Stack;
+
+
+
 #endif

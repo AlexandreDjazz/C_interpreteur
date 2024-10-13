@@ -2,7 +2,7 @@
 
 int main(const int ac, char **av)
 {
-    char *commands = NULL;
+    char *commands = "1+1";
 
     if (ac > 2) {
         printf("Too many arguments\n");
@@ -16,6 +16,7 @@ int main(const int ac, char **av)
         commands = initialize_string(commands);
 
     lexer(commands);
+    shuntingYard(commands);
     free(commands);
     return 0;
 }
