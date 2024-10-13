@@ -12,9 +12,13 @@ char *check_and_copy_file(char *commands, char **av);
 // string.c
 int my_strlen(const char *str);
 char *initialize_string(char *commands);
+int interactive_mode(void);
 
 // lexer.c
 void lexer(const char *commands);
+
+// error_handling.c
+int error_character(const char *commands);
 
 // token.c
 Token isInteger(int position, int *index, const char *commands, Token token);

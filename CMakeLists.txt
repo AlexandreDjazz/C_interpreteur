@@ -11,4 +11,5 @@ add_executable(interpreteur main.c
         header/prototypes.h
         string.c
         token.c
-        main.c)
+        main.c
+        error_handling.c)

@@ -11,11 +11,11 @@ int main(const int ac, char **av)
     if (ac == 2) {
         if ((commands = check_and_copy_file(commands, av)) == NULL)
             return -1;
+        lexer(commands);
     }
     else
-        commands = initialize_string(commands);
+        interactive_mode();
 
-    lexer(commands);
     free(commands);
     return 0;
 }
