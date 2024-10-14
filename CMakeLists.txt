@@ -3,10 +3,17 @@ project(interpreteur C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(interpreteur
-        main.c
+add_executable(interpreteur main.c
         file.c
-        ast.c
+        lexer.c
+        header/include.h
+        header/structures.h
+        header/prototypes.h
+        string.c
+        token.c
+        main.c
+        error_handling.c
+        shunting_yard.c)
         ast.c
 
 )
