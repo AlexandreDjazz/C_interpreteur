@@ -8,5 +8,6 @@
 
 #include "prototypes.h"
 #include "structures.h"
+#include "ast.h"
 
 #endif
