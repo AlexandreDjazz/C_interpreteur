@@ -79,3 +79,52 @@ void freeAst(linkAST* link) {
     
     free(link);
 }
+
+
+
+linkAST* build_ast(const char* calculations) {
+    printf("%c",calculations);
+    char *token;
+    linkAST* stack[100];
+    int stack_index = 0;
+
+
+    char *calculationsCopy = strdup(calculations);
+    token = strtok(calculationsCopy, " ");
+
+    while (token != NULL) {
+        if (isdigit(token[0])) {
+            double value = atof(token);
+            stack[stack_index++] = create_link_number(value);
+        } else {
+            linkAST* right = stack[--stack_index];
+            linkAST* left = stack[--stack_index];
+            operatorType op;
+
+            switch (token[0]) {
+                case '+':
+                    op = addOP;
+                    break;
+                case '-':
+                    op = subOP;
+                    break;
+                case '*':
+                    op = mulOP;
+                    break;
+                case '/':
+                    op = divOP;
+                    break;
+                default:
+                    fprintf(stderr, "Unknown operator: %s\n", token);
+                    free(calculationsCopy);
+                    exit(EXIT_FAILURE);
+            }
+
+            stack[stack_index++] = create_link_operator(op, left, right);
+        }
+        token = strtok(NULL, " ");
+    }
+
+    free(calculationsCopy);
+    return stack[0];
+}

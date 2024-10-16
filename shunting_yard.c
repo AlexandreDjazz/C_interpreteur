@@ -1,5 +1,6 @@
 #include "header/include.h"
 
+
 int operater_precedence(const char operater) {
     if (operater == '+' || operater == '-') {
         return 1;
@@ -47,13 +48,24 @@ void shunting_yard(const char *commands) {
             stack[stack_size++] = token.value[0];
         }
     }
-    stack[stack_size] = '\0';
-    for (int x = stack_size - 1; x >= 0; x--) {
-        algo[index_algo++] = stack[x];
+
+
+    while (stack_size > 0) {
+        algo[index_algo++] = stack[--stack_size];
         algo[index_algo++] = ' ';
     }
     algo[index_algo] = '\0';
+
     printf("Postfix Expression: %s\n", algo);
+
+
+    linkAST* ast = build_ast(algo);
+
+
+    double result = checkAst(ast);
+    printf("Result: %f\n", result);
+
     free(algo);
     free(stack);
+    freeAst(ast);
 }

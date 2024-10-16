@@ -1,13 +1,6 @@
-//
-// Created by alexa on 14/10/2024.
-//
-
 #ifndef INTERPRETEUR_AST_H
 #define INTERPRETEUR_AST_H
 
-#endif //INTERPRETEUR_AST_H
-
-//ast.c
 
 typedef enum {
     wayNumber,
@@ -47,3 +40,6 @@ linkAST* create_link_number(double value);
 linkAST* create_link_operator(operatorType op, linkAST* left, linkAST* right);
 double checkAst(linkAST* link);
 void freeAst(linkAST* link);
+linkAST* build_ast(const char* algo);
+
+#endif

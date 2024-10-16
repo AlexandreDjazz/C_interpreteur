@@ -1,8 +1,9 @@
 #ifndef PROTOTYPES_H
 #define PROTOTYPES_H
 
-#include "include.h"
+
 #include "structures.h"
+
 
 // file.c
 long get_file_size(FILE *str);
@@ -32,5 +33,6 @@ Token get_Token(int *index, const char *commands);
 // shunting_yard.c
 int operater_precedence(const char operater);
 void shunting_yard(const char *commands);
+
 
 #endif
