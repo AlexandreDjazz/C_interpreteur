@@ -10,4 +10,7 @@
 #include "structures.h"
 #include "ast.h"
 
+extern int variableCount;
+extern Variable variableStock[100];
+
 #endif

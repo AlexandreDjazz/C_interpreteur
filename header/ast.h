@@ -36,6 +36,9 @@ typedef struct linkAST {
 
 
 
+
+
+
 linkAST* create_link_number(double value);
 linkAST* create_link_operator(operatorType op, linkAST* left, linkAST* right);
 double checkAst(linkAST* link);

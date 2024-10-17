@@ -34,5 +34,7 @@ Token get_Token(int *index, const char *commands);
 int operater_precedence(const char operater);
 void shunting_yard(const char *commands);
 
+//variable.c
+
 
 #endif

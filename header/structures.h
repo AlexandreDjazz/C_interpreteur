@@ -1,8 +1,7 @@
 #ifndef STRUCTURES_H
 #define STRUCTURES_H
 
-#include "prototypes.h"
-#include "include.h"
+
 
 typedef enum TokenType TokenType;
 enum TokenType {
@@ -25,5 +24,15 @@ struct Token {
     char *value;
     TokenType type;
 };
+
+
+//structure variable
+typedef struct
+{
+    char name[10];
+    int value;
+} Variable;
+
+
 
 #endif

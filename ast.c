@@ -83,13 +83,20 @@ void freeAst(linkAST* link) {
 
 
 linkAST* build_ast(const char* calculations) {
-    printf("%c",calculations);
+
     char *token;
     linkAST* stack[100];
     int stack_index = 0;
 
+    //Herman
+    const char *check = strchr(calculations, '=');
+    if (check == NULL) {
+        fprintf(stderr, "No checkession found after '='\n");
+    }
+    check++;
 
-    char *calculationsCopy = strdup(calculations);
+
+    char *calculationsCopy = strdup(check);
     token = strtok(calculationsCopy, " ");
 
     while (token != NULL) {
