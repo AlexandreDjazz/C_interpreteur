@@ -9,8 +9,14 @@ add_executable(interpreteur main.c
         header/include.h
         header/structures.h
         header/prototypes.h
+        header/interpreter.h
+        header/ast.h
         string.c
         token.c
         main.c
-        parser.c
-        stack.c)
+        error_handling.c
+        shunting_yard.c
+        ast.c
+        string.c
+
+)

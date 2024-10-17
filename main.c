@@ -1,8 +1,11 @@
 #include "header/include.h"
 
-int main(const int ac, char **av)
-{
-    char *commands = "1+1";
+int variableCount=1;
+Variable variableStock[100];
+
+int main(const int ac, char **av) {
+    char *commands = NULL;
+
 
     if (ac > 2) {
         printf("Too many arguments\n");
@@ -11,12 +14,11 @@ int main(const int ac, char **av)
     if (ac == 2) {
         if ((commands = check_and_copy_file(commands, av)) == NULL)
             return -1;
+        shunting_yard(commands);
     }
     else
-        commands = initialize_string(commands);
+        interactive_mode();
 
-    lexer(commands);
-    shuntingYard(commands);
     free(commands);
     return 0;
 }
