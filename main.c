@@ -2,11 +2,11 @@
 
 int variableCount=0;
 Variable variableStock[100];
+//déclaration du tableau contenant les variables
+
 
 int main(const int ac, char **av) {
     char *commands = NULL;
-
-
     if (ac > 2) {
         printf("Too many arguments\n");
         return -1;
@@ -14,6 +14,7 @@ int main(const int ac, char **av) {
     if (ac == 2) {
         if ((commands = check_and_copy_file(commands, av)) == NULL)
             return -1;
+        printf(commands);
         shunting_yard(commands);
     }
     else

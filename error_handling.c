@@ -1,5 +1,8 @@
 #include "header/include.h"
 
+
+//gestion des caractères illégaux
+
 int error_character(const char *commands) {
     const char *allowed_char = "><(){}=+*-/ ";
 

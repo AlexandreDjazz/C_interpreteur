@@ -1,6 +1,6 @@
 #include "header/include.h"
 
-
+//remplir la structure avec la valeur reçu
 linkAST* create_link_number(double value) {
 
     linkAST* link = (linkAST*)malloc(sizeof(linkAST));
@@ -15,7 +15,7 @@ linkAST* create_link_number(double value) {
     return link;
 }
 
-
+//enregister les opérateurs
 linkAST* create_link_operator(operatorType op, linkAST* left, linkAST* right) {
 
     linkAST* link = (linkAST*)malloc(sizeof(linkAST));
@@ -34,7 +34,7 @@ linkAST* create_link_operator(operatorType op, linkAST* left, linkAST* right) {
     return link;
 }
 
-
+//caculateur
 double checkAst(linkAST* link) {
     if (link->type == wayNumber) {
 
@@ -64,7 +64,7 @@ double checkAst(linkAST* link) {
 }
 
 //------------------------------------------------------------------------------------------------------------------------
-
+// libere la mémoire
 void freeAst(linkAST* link) {
     if (link->type == wayOperator) {
         
@@ -82,7 +82,7 @@ void freeAst(linkAST* link) {
 
 //------------------------------------------------------------------------------------------------------------------------
 
-
+//envoie nom de la variabl pour récup sa valeur
 float get_variable_value(const char *name) {
 
     for (int i = 0; i < variableCount; i++) {
@@ -96,7 +96,7 @@ float get_variable_value(const char *name) {
 
 //------------------------------------------------------------------------------------------------------------------------
 
-
+//changer la variable en valeur
 char* replace_variables_with_values(char *calculations) {
     char *result = malloc(strlen(calculations) * 10);
     result[0] = '\0';
@@ -123,13 +123,14 @@ char* replace_variables_with_values(char *calculations) {
 
 //------------------------------------------------------------------------------------------------------------------------
 
+//l'addition de toutes les fonctions
 linkAST* build_ast(const char* calculations) {
     char *token;
     linkAST* stack[100];
     int stack_index = 0;
 
-    //Herman
     const char *check = strchr(calculations, '=');
+
     if (check == NULL) {
         fprintf(stderr, "No expression found after '='\n");
         return NULL;

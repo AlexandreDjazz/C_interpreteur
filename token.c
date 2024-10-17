@@ -1,5 +1,7 @@
 #include "header/include.h"
 
+
+
 Token isInteger(int position, int *index, const char *commands, Token token) {
     int x = 0;
     while (commands[position] >= '0' && commands[position] <= '9' ) {

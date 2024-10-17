@@ -1,5 +1,7 @@
 #include "header/include.h"
 
+
+//taile du fichier
 long get_file_size(FILE *str) {
 
     long size = 0;
@@ -11,6 +13,7 @@ long get_file_size(FILE *str) {
     return size;
 }
 
+//copier la ligne du ficher en String
 char *copy_file(char *commands, FILE *file_commands) {
 
     unsigned int i = 0;
@@ -23,6 +26,7 @@ char *copy_file(char *commands, FILE *file_commands) {
     return commands;
 }
 
+//ouverture du fichier en mode lecture et copie du ficher (string)
 char *check_and_copy_file(char *commands, char **av) {
 
     long size = 0;
