@@ -30,7 +30,7 @@ struct Token {
 typedef struct
 {
     char name[10];
-    int value;
+    float value;
 } Variable;
 
 
