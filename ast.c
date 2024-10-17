@@ -63,7 +63,7 @@ double checkAst(linkAST* link) {
     return 0;  
 }
 
-
+//------------------------------------------------------------------------------------------------------------------------
 
 void freeAst(linkAST* link) {
     if (link->type == wayOperator) {
@@ -80,10 +80,50 @@ void freeAst(linkAST* link) {
     free(link);
 }
 
+//------------------------------------------------------------------------------------------------------------------------
 
+
+float get_variable_value(const char *name) {
+
+    for (int i = 0; i < variableCount; i++) {
+        if (strcmp(variableStock[i].name, name) == 0) {
+            return variableStock[i].value;
+        }
+    }
+    fprintf(stderr, "Variable '%s' not found\n", name);
+    exit(EXIT_FAILURE);
+}
+
+//------------------------------------------------------------------------------------------------------------------------
+
+
+char* replace_variables_with_values(char *calculations) {
+    char *result = malloc(strlen(calculations) * 10);
+    result[0] = '\0';
+
+    char *token = strtok(calculations, " ");
+    while (token != NULL) {
+
+        if ((token[0] >= 'A' && token[0] <= 'Z') || (token[0] >= 'a' && token[0] <= 'z')) {
+
+            float value = get_variable_value(token);
+
+            char value_str[20];
+            sprintf(value_str, "%f", value);
+            strcat(result, value_str);
+        } else {
+            strcat(result, token);
+        }
+        strcat(result, " ");
+        token = strtok(NULL, " ");
+    }
+
+    return result;
+}
+
+//------------------------------------------------------------------------------------------------------------------------
 
 linkAST* build_ast(const char* calculations) {
-
     char *token;
     linkAST* stack[100];
     int stack_index = 0;
@@ -91,14 +131,16 @@ linkAST* build_ast(const char* calculations) {
     //Herman
     const char *check = strchr(calculations, '=');
     if (check == NULL) {
-        fprintf(stderr, "No checkession found after '='\n");
+        fprintf(stderr, "No expression found after '='\n");
+        return NULL;
     }
     check++;
 
-
     char *calculationsCopy = strdup(check);
-    token = strtok(calculationsCopy, " ");
 
+    char *expression_with_values = replace_variables_with_values(calculationsCopy);
+
+    token = strtok(expression_with_values, " ");
     while (token != NULL) {
         if (isdigit(token[0])) {
             double value = atof(token);
@@ -132,6 +174,9 @@ linkAST* build_ast(const char* calculations) {
         token = strtok(NULL, " ");
     }
 
+    free(expression_with_values);
     free(calculationsCopy);
     return stack[0];
 }
+
+//------------------------------------------------------------------------------------------------------------------------

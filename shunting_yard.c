@@ -20,7 +20,7 @@ void shunting_yard(const char *commands) {
     char *algo = malloc(sizeof(char) * (strlen(commands) + 1));
     char *stack = malloc(sizeof(char) * 200);
     int stack_size = 0;
-
+    int check=0;
     char *varNom = malloc(sizeof(char) * (strlen(commands) + 1));
 
 
@@ -41,7 +41,7 @@ void shunting_yard(const char *commands) {
                 int good = 0;
                 for (int k = 0; k < variableCount; k++) {
                     if (strcmp(varNom, variableStock[k].name) == 0){
-                        printf("la valeur de %s est %d", varNom, variableStock[k].value);
+                        printf("la valeur de %s est %f", varNom, variableStock[k].value);
                         good = 1;
                     }
                 }
@@ -60,8 +60,9 @@ void shunting_yard(const char *commands) {
             algo[index_algo++] = ' ';
         }
 
-        if(token.type == TOK_VAR) {
+        if(token.type == TOK_VAR && check==0) {
             strcpy(varNom, token.value);
+            check++;
         }
 
         if(token.type == TOK_EQL) {
