@@ -1,9 +1,7 @@
 #include "header/include.h"
 
-
 //taile du fichier
 long get_file_size(FILE *str) {
-
     long size = 0;
 
     fseek(str, 0, SEEK_END);
@@ -15,7 +13,6 @@ long get_file_size(FILE *str) {
 
 //copier la ligne du ficher en String
 char *copy_file(char *commands, FILE *file_commands) {
-
     unsigned int i = 0;
     char c;
 
@@ -28,7 +25,6 @@ char *copy_file(char *commands, FILE *file_commands) {
 
 //ouverture du fichier en mode lecture et copie du ficher (string)
 char *check_and_copy_file(char *commands, char **av) {
-
     long size = 0;
 
     FILE *file_commands = fopen(av[1], "r");

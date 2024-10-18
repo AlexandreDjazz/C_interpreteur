@@ -20,6 +20,7 @@ Token lexer(int *index, const char *commands);
 
 // error_handling.c
 int error_character(const char *commands);
+int check_parenthesis(const char *commands);
 
 // token.c
 Token isInteger(int position, int *index, const char *commands, Token token);

@@ -1,6 +1,5 @@
 #include "header/include.h"
 
-
 //gestion des priorités
 int operater_precedence(const char operater) {
     if (operater == '+' || operater == '-') {
@@ -11,7 +10,6 @@ int operater_precedence(const char operater) {
     }
     return 0;
 }
-
 
 void shunting_yard(const char *commands) {
 
@@ -103,11 +101,7 @@ void shunting_yard(const char *commands) {
     printf("Postfix Expression: %s\n", algo);
 
     linkAST* ast = build_ast(algo);
-
-
     double result = checkAst(ast);
-
-
     printf("Result: %f\n", result);
 
     //création de la variable dans la structure ou modification de sa valeur
@@ -115,11 +109,9 @@ void shunting_yard(const char *commands) {
     variableStock[variableCount].value = result;
     variableCount++;
 
-
     free(algo);
     free(stack);
     freeAst(ast);
     free(varNom);
-
 }
 

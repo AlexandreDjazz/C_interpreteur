@@ -1,7 +1,5 @@
 #include "header/include.h"
 
-
-//
 char *initialize_string(char *commands) {
     const size_t length = 1000;
     char instruction[length];
@@ -18,7 +16,6 @@ char *initialize_string(char *commands) {
     return commands;
 }
 
-
 int interactive_mode(void) {
     char *commands = NULL;
 
@@ -33,6 +30,8 @@ int interactive_mode(void) {
             break;
         if (error_character(commands) == -1)
             printf("Wrong character detected\n");
+        if (check_parenthesis(commands))
+            printf("Incorrect use of parentheses\n");
         else
             shunting_yard(commands);
     }

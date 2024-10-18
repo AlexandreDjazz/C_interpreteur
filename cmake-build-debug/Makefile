@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\C\C_interpreteur
+CMAKE_SOURCE_DIR = C:\Users\brice\Documents\GitHub\C_interpreteur
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\C\C_interpreteur\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\brice\Documents\GitHub\C_interpreteur\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = D:\C\C_interpreteur\cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	"D:\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	"D:\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\C\C_interpreteur\cmake-build-debug\CMakeFiles D:\C\C_interpreteur\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\brice\Documents\GitHub\C_interpreteur\cmake-build-debug\CMakeFiles C:\Users\brice\Documents\GitHub\C_interpreteur\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\C\C_interpreteur\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\brice\Documents\GitHub\C_interpreteur\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -127,6 +127,54 @@ interpreteur: cmake_check_build_system
 interpreteur/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/build
 .PHONY : interpreteur/fast
+
+ast.obj: ast.c.obj
+.PHONY : ast.obj
+
+# target to build an object file
+ast.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/ast.c.obj
+.PHONY : ast.c.obj
+
+ast.i: ast.c.i
+.PHONY : ast.i
+
+# target to preprocess a source file
+ast.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/ast.c.i
+.PHONY : ast.c.i
+
+ast.s: ast.c.s
+.PHONY : ast.s
+
+# target to generate assembly for a file
+ast.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/ast.c.s
+.PHONY : ast.c.s
+
+error_handling.obj: error_handling.c.obj
+.PHONY : error_handling.obj
+
+# target to build an object file
+error_handling.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/error_handling.c.obj
+.PHONY : error_handling.c.obj
+
+error_handling.i: error_handling.c.i
+.PHONY : error_handling.i
+
+# target to preprocess a source file
+error_handling.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/error_handling.c.i
+.PHONY : error_handling.c.i
+
+error_handling.s: error_handling.c.s
+.PHONY : error_handling.s
+
+# target to generate assembly for a file
+error_handling.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/error_handling.c.s
+.PHONY : error_handling.c.s
 
 file.obj: file.c.obj
 .PHONY : file.obj
@@ -200,53 +248,29 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/main.c.s
 .PHONY : main.c.s
 
-parser.obj: parser.c.obj
-.PHONY : parser.obj
+shunting_yard.obj: shunting_yard.c.obj
+.PHONY : shunting_yard.obj
 
 # target to build an object file
-parser.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/parser.c.obj
-.PHONY : parser.c.obj
+shunting_yard.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/shunting_yard.c.obj
+.PHONY : shunting_yard.c.obj
 
-parser.i: parser.c.i
-.PHONY : parser.i
-
-# target to preprocess a source file
-parser.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/parser.c.i
-.PHONY : parser.c.i
-
-parser.s: parser.c.s
-.PHONY : parser.s
-
-# target to generate assembly for a file
-parser.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/parser.c.s
-.PHONY : parser.c.s
-
-stack.obj: stack.c.obj
-.PHONY : stack.obj
-
-# target to build an object file
-stack.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/stack.c.obj
-.PHONY : stack.c.obj
-
-stack.i: stack.c.i
-.PHONY : stack.i
+shunting_yard.i: shunting_yard.c.i
+.PHONY : shunting_yard.i
 
 # target to preprocess a source file
-stack.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/stack.c.i
-.PHONY : stack.c.i
+shunting_yard.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/shunting_yard.c.i
+.PHONY : shunting_yard.c.i
 
-stack.s: stack.c.s
-.PHONY : stack.s
+shunting_yard.s: shunting_yard.c.s
+.PHONY : shunting_yard.s
 
 # target to generate assembly for a file
-stack.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/stack.c.s
-.PHONY : stack.c.s
+shunting_yard.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/shunting_yard.c.s
+.PHONY : shunting_yard.c.s
 
 string.obj: string.c.obj
 .PHONY : string.obj
@@ -305,6 +329,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... interpreteur
+	@echo ... ast.obj
+	@echo ... ast.i
+	@echo ... ast.s
+	@echo ... error_handling.obj
+	@echo ... error_handling.i
+	@echo ... error_handling.s
 	@echo ... file.obj
 	@echo ... file.i
 	@echo ... file.s
@@ -314,12 +344,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... parser.obj
-	@echo ... parser.i
-	@echo ... parser.s
-	@echo ... stack.obj
-	@echo ... stack.i
-	@echo ... stack.s
+	@echo ... shunting_yard.obj
+	@echo ... shunting_yard.i
+	@echo ... shunting_yard.s
 	@echo ... string.obj
 	@echo ... string.i
 	@echo ... string.s

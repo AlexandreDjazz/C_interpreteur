@@ -14,7 +14,10 @@ int main(const int ac, char **av) {
     if (ac == 2) {
         if ((commands = check_and_copy_file(commands, av)) == NULL)
             return -1;
-        printf(commands);
+        if (check_parenthesis(commands)) {
+            printf("Incorrect use of parentheses\n");
+            return -1;
+        }
         shunting_yard(commands);
     }
     else

@@ -21,11 +21,9 @@ linkAST* create_link_operator(operatorType op, linkAST* left, linkAST* right) {
     linkAST* link = (linkAST*)malloc(sizeof(linkAST));
     operatorLink* operator = (operatorLink*)malloc(sizeof(operatorLink));
 
-
     operator->op = op;
     operator->left = left;
     operator->right = right;
-
 
     link->type = wayOperator;
     link->operator = operator;
@@ -44,7 +42,6 @@ double checkAst(linkAST* link) {
 
         double left = checkAst(link->operator->left);
         double right = checkAst(link->operator->right);
-
 
         switch (link->operator->op) {
             case addOP:
