@@ -24,6 +24,34 @@ char *initialize_string(char *commands) {
     return commands;
 }
 
+// remplace les espaces par des multiplications dans les calculs
+void spaceToMultiply(char *commands) {
+    int j = 0;
+    int len = my_strlen(commands);
+    char* output = malloc(sizeof(char) * (len * 2 + 1));
+
+    for (int x = 0; x < len; x++) {
+        j++;
+        if (commands[x] == ' ') {
+            Token token = lexer(&j, commands);
+            if(token.type == TOK_PRT || token.type == TOK_INT) {
+                output[x] = '*';
+            }else {
+                output[x] = commands[x];
+            }
+        } else {
+            output[x] = commands[x];
+        }
+    }
+
+    output[j] = '\0';
+
+    strcpy(commands, output);  // Copie le resultat final dans la string
+    free(output);
+    printf("%s\n", commands);
+}
+
+
 int interactive_mode(void) {
     char *commands = NULL;
 
@@ -39,6 +67,8 @@ int interactive_mode(void) {
         if (error_character(commands) == -1)
             printf("Wrong character detected\n");
         else
+            //test
+                spaceToMultiply(commands);
             shunting_yard(commands);
     }
     free(commands);
