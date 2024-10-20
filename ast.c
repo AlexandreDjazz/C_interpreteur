@@ -125,16 +125,16 @@ linkAST* build_ast(const char* calculations) {
     char *token;
     linkAST* stack[100];
     int stack_index = 0;
+    char *check;
 
-    const char *check = strchr(calculations, '=');
-
-    if (check == NULL) {
-        fprintf(stderr, "No expression found after '='\n");
-        return NULL;
+    if (strchr(calculations, '=') != NULL) { 
+        check = strchr(calculations, '=') + 1;
+    } else {
+        check = calculations;
     }
-    check++;
 
     char *calculationsCopy = strdup(check);
+
 
     char *expression_with_values = replace_variables_with_values(calculationsCopy);
 
