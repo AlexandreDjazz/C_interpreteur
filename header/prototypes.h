@@ -12,9 +12,13 @@ char *check_and_copy_file(char *commands, char **av);
 // string.c
 int my_strlen(const char *str);
 char *initialize_string(char *commands);
+int interactive_mode(void);
 
 // lexer.c
-void lexer(const char *commands);
+Token lexer(int *index, const char *commands);
+
+// error_handling.c
+int error_character(const char *commands);
 
 // token.c
 Token isInteger(int position, int *index, const char *commands, Token token);
@@ -25,14 +29,8 @@ Token isParenthesis(int position, int *index, const char *commands, Token token)
 Token isCurlyBracket(int position, int *index, const char *commands, Token token);
 Token get_Token(int *index, const char *commands);
 
-Stack* createStack(int capacity);
-int isEmpty(Stack* stack);
-int isFull(Stack* stack);
-void push(Stack* stack, char op);
-char pop(Stack* stack);
-char peek(Stack* stack);
-int precedence(char op);
-
-void shuntingYard(const char* expression);
+// shunting_yard.c
+int operater_precedence(const char operater);
+void shunting_yard(const char *commands);
 
 #endif

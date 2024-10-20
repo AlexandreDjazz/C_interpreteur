@@ -12,5 +12,5 @@ add_executable(interpreteur main.c
         string.c
         token.c
         main.c
-        parser.c
-        stack.c)
+        error_handling.c
+        shunting_yard.c)
