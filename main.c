@@ -12,13 +12,7 @@ int main(const int ac, char **av) {
         return -1;
     }
     if (ac == 2) {
-        if ((commands = check_and_copy_file(commands, av)) == NULL)
-            return -1;
-        if (check_parenthesis(commands)) {
-            printf("Incorrect use of parentheses\n");
-            return -1;
-        }
-        shunting_yard(commands);
+        fileInterpret(av[1]);
     }
     else
         interactive_mode();
