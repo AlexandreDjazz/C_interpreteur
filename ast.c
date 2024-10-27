@@ -93,6 +93,35 @@ float get_variable_value(const char *name) {
 
 //------------------------------------------------------------------------------------------------------------------------
 
+//affiche l'arbre AST
+void printAst(linkAST* node, int indent) {
+    if (node == NULL) return;
+
+    for (int i = 0; i < indent; i++) {
+        printf("   ");
+    }
+
+
+    if (node->type == wayOperator) {
+        printf("%c\n",
+               (node->operator->op == addOP) ? '+' :
+               (node->operator->op == subOP) ? '-' :
+               (node->operator->op == mulOP) ? '*' :
+               (node->operator->op == divOP) ? '/' : '?');
+
+        // Appel récursif sur les sous-arbres gauche et droit
+        printAst(node->operator->left, indent + 1);
+        printAst(node->operator->right, indent + 1);
+
+    } else if (node->type == wayNumber) {
+        printf("%f\n", node->number->value);
+    }
+}
+
+
+
+//------------------------------------------------------------------------------------------
+
 //changer la variable en valeur
 char* replace_variables_with_values(char *calculations) {
     char *result = malloc(strlen(calculations) * 10);
@@ -125,9 +154,9 @@ linkAST* build_ast(const char* calculations) {
     char *token;
     linkAST* stack[100];
     int stack_index = 0;
-    char *check;
+    const char *check;
 
-    if (strchr(calculations, '=') != NULL) { 
+    if (strchr(calculations, '=') != NULL) {
         check = strchr(calculations, '=') + 1;
     } else {
         check = calculations;
@@ -174,7 +203,13 @@ linkAST* build_ast(const char* calculations) {
 
     free(expression_with_values);
     free(calculationsCopy);
-    return stack[0];
+
+    linkAST* root = stack[0];
+    
+    printAst(root,0);
+
+    return root;
 }
 
 //------------------------------------------------------------------------------------------------------------------------
+
