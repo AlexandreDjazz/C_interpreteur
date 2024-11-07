@@ -33,10 +33,20 @@ char *check_and_copy_file(char *commands, char **av) {
         return NULL;
     }
 
+<<<<<<< Updated upstream
     size = get_Size_File(file_commands);
     commands = malloc(sizeof(char) * (size + 1));
     commands = copy_file(commands, file_commands);
     fclose(file_commands);
 
     return commands;
+=======
+    while (fgets(taille, sizeof(taille), commands) != NULL) {
+        taille[strcspn(taille, "\n")] = '\0';
+        if (strlen(taille) > 0) {
+            shunting_yard(taille);
+        }
+    }
+    fclose(commands);
+>>>>>>> Stashed changes
 }
