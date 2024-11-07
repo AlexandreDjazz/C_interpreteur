@@ -4,9 +4,6 @@ project(interpreteur C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(interpreteur main.c
-<<<<<<< Updated upstream
-        file.c)
-=======
         file.c
         lexer.c
         header/include.h
@@ -23,4 +20,3 @@ add_executable(interpreteur main.c
         Print.c
 
 )
->>>>>>> Stashed changes

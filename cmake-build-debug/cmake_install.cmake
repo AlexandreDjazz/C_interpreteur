@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/brice/GitHub/C_interpreteur
+# Install script for directory: C:/Users/varda/Documents/GitHub/C_interpreteur
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/brice/GitHub/C_interpreteur/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/varda/Documents/GitHub/C_interpreteur/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

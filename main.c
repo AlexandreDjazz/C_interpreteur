@@ -1,24 +1,22 @@
-#include "interpreter.h"
+#include "header/include.h"
 
-int main(const int ac, char **av)
-{
+int variableCount=0;
+Variable variableStock[100];
+//déclaration du tableau contenant les variables
+
+
+int main(const int ac, char **av) {
     char *commands = NULL;
-
     if (ac > 2) {
         printf("Too many arguments\n");
         return -1;
     }
-
-    else if (ac == 2) {
-        if ((commands = check_and_copy_file(commands, av)) == NULL) {
-            free(commands);
-            return -1;
-        }
+    if (ac == 2) {
+        fileInterpret(av[1]);
     }
-    printf("%s\n", commands); //vérif lecture et copie fichier ok
+    else
+        interactive_mode();
 
-    //else
-        // read terminal
-
+    free(commands);
     return 0;
 }

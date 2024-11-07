@@ -1,46 +1,15 @@
-#include "interpreter.h"
+#include "header/include.h"
 
-long get_Size_File(FILE *str) {
+void fileInterpret(const char *nameFile) {
+    FILE * commands;
+    commands = fopen(nameFile, "r");;
+    char taille[256];
 
-    long size = 0;
-
-    fseek(str, 0, SEEK_END);
-    size = ftell(str);
-    fseek(str, 0, SEEK_SET);
-
-    return size;
-}
-
-char *copy_file(char *commands, FILE *file_commands) {
-
-    unsigned int i = 0;
-    char c;
-
-    while ((c = (char)fgetc(file_commands)) != EOF)
-        commands[i++] = c;
-    commands[i] = '\0';
-
-    return commands;
-}
-
-char *check_and_copy_file(char *commands, char **av) {
-
-    long size = 0;
-
-    FILE *file_commands = fopen(av[1], "r");
-    if (file_commands == NULL) {
-        perror("Failed to open file");
-        return NULL;
+    if (commands == NULL) {
+        perror("Erreur lors de l'ouverture du fichier");
+        return;
     }
 
-<<<<<<< Updated upstream
-    size = get_Size_File(file_commands);
-    commands = malloc(sizeof(char) * (size + 1));
-    commands = copy_file(commands, file_commands);
-    fclose(file_commands);
-
-    return commands;
-=======
     while (fgets(taille, sizeof(taille), commands) != NULL) {
         taille[strcspn(taille, "\n")] = '\0';
         if (strlen(taille) > 0) {
@@ -48,5 +17,4 @@ char *check_and_copy_file(char *commands, char **av) {
         }
     }
     fclose(commands);
->>>>>>> Stashed changes
 }
