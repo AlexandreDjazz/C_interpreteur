@@ -2,7 +2,6 @@
 #define STRUCTURES_H
 
 
-
 typedef enum TokenType TokenType;
 enum TokenType {
     TOK_VAR, // variable
@@ -26,14 +25,11 @@ struct Token {
     TokenType type;
 };
 
-
 //structure variable
 typedef struct
 {
     char name[10];
     float value;
 } Variable;
-
-
 
 #endif

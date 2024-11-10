@@ -5,44 +5,43 @@
 typedef enum {
     wayNumber,
     wayOperator
-} Typelink;
+} TypeLink;
+
 
 typedef enum {
     addOP,
     subOP,
     mulOP,
     divOP
-} operatorType;
-
+} OperatorType;
 
 
 typedef struct {
     double value;
-} numberLink;
+} NumberLink;
 
 
 typedef struct {
-    operatorType op;
+    OperatorType op;
     struct linkAST* right;
     struct linkAST* left;
-} operatorLink;
+} OperatorLink;
 
 
 typedef struct linkAST {
-    Typelink type;
-    numberLink* number;
-    operatorLink* operator;
-} linkAST;
+    TypeLink type;
+    NumberLink* number;
+    OperatorLink* operator;
+} LinkAST;
 
 
-
-
-
-
-linkAST* create_link_number(double value);
-linkAST* create_link_operator(operatorType op, linkAST* left, linkAST* right);
-double checkAst(linkAST* link);
-void freeAst(linkAST* link);
-linkAST* build_ast(const char* algo);
+LinkAST* create_link_number(double value);
+LinkAST* create_link_operator(OperatorType op, LinkAST* left, LinkAST* right);
+double check_ast(LinkAST* link);
+void free_ast(LinkAST* link);
+float get_variable_value(const char *name);
+void print_ast(LinkAST* node, int indent);
+char* replace_variables_with_values(char *calculations);
+LinkAST* build_ast(const char* calculations);
 
 #endif

@@ -1,10 +1,10 @@
 #include "header/include.h"
 
 //remplir la structure avec la valeur reçu
-linkAST* create_link_number(double value) {
+LinkAST* create_link_number(double value) {
 
-    linkAST* link = (linkAST*)malloc(sizeof(linkAST));
-    numberLink* number = (numberLink*)malloc(sizeof(numberLink));
+    LinkAST* link = (LinkAST*)malloc(sizeof(LinkAST));
+    NumberLink* number = (NumberLink*)malloc(sizeof(NumberLink));
 
     number->value = value;
 
@@ -16,10 +16,10 @@ linkAST* create_link_number(double value) {
 }
 
 //enregister les opérateurs
-linkAST* create_link_operator(operatorType op, linkAST* left, linkAST* right) {
+LinkAST* create_link_operator(OperatorType op, LinkAST* left, LinkAST* right) {
 
-    linkAST* link = (linkAST*)malloc(sizeof(linkAST));
-    operatorLink* operator = (operatorLink*)malloc(sizeof(operatorLink));
+    LinkAST* link = (LinkAST*)malloc(sizeof(LinkAST));
+    OperatorLink* operator = (OperatorLink*)malloc(sizeof(OperatorLink));
 
     operator->op = op;
     operator->left = left;
@@ -33,15 +33,15 @@ linkAST* create_link_operator(operatorType op, linkAST* left, linkAST* right) {
 }
 
 //caculateur
-double checkAst(linkAST* link) {
+double check_ast(LinkAST* link) {
     if (link->type == wayNumber) {
 
         return link->number->value;
 
     } else if (link->type == wayOperator) {
 
-        double left = checkAst(link->operator->left);
-        double right = checkAst(link->operator->right);
+        double left = check_ast(link->operator->left);
+        double right = check_ast(link->operator->right);
 
         switch (link->operator->op) {
             case addOP:
@@ -62,11 +62,11 @@ double checkAst(linkAST* link) {
 
 //------------------------------------------------------------------------------------------------------------------------
 // libere la mémoire
-void freeAst(linkAST* link) {
+void free_ast(LinkAST* link) {
     if (link->type == wayOperator) {
         
-        freeAst(link->operator->left);
-        freeAst(link->operator->right);
+        free_ast(link->operator->left);
+        free_ast(link->operator->right);
         
         free(link->operator);
     } else if (link->type == wayNumber) {
@@ -82,19 +82,20 @@ void freeAst(linkAST* link) {
 //envoie nom de la variabl pour récup sa valeur
 float get_variable_value(const char *name) {
 
-    for (int i = 0; i < variableCount; i++) {
-        if (strcmp(variableStock[i].name, name) == 0) {
-            return variableStock[i].value;
+    for (int i = 0; i < variable_count; i++) {
+        if (strcmp(variable_stock[i].name, name) == 0) {
+            return variable_stock[i].value;
         }
     }
     fprintf(stderr, "Variable '%s' not found\n", name);
-    exit(EXIT_FAILURE);
+    return 0.0;
+    //exit(EXIT_FAILURE);
 }
 
 //------------------------------------------------------------------------------------------------------------------------
 
 //affiche l'arbre AST
-void printAst(linkAST* node, int indent) {
+void print_ast(LinkAST* node, int indent) {
     if (node == NULL) return;
 
     for (int i = 0; i < indent; i++) {
@@ -110,8 +111,8 @@ void printAst(linkAST* node, int indent) {
                (node->operator->op == divOP) ? '/' : '?');
 
         // Appel récursif sur les sous-arbres gauche et droit
-        printAst(node->operator->left, indent + 1);
-        printAst(node->operator->right, indent + 1);
+        print_ast(node->operator->left, indent + 1);
+        print_ast(node->operator->right, indent + 1);
 
     } else if (node->type == wayNumber) {
         printf("%f\n", node->number->value);
@@ -150,9 +151,9 @@ char* replace_variables_with_values(char *calculations) {
 //------------------------------------------------------------------------------------------------------------------------
 
 //l'addition de toutes les fonctions
-linkAST* build_ast(const char* calculations) {
+LinkAST* build_ast(const char* calculations) {
     char *token;
-    linkAST* stack[100];
+    LinkAST* stack[100];
     int stack_index = 0;
     const char *check;
 
@@ -162,10 +163,10 @@ linkAST* build_ast(const char* calculations) {
         check = calculations;
     }
 
-    char *calculationsCopy = strdup(check);
+    char *calculations_copy = strdup(check);
 
 
-    char *expression_with_values = replace_variables_with_values(calculationsCopy);
+    char *expression_with_values = replace_variables_with_values(calculations_copy);
 
     token = strtok(expression_with_values, " ");
     while (token != NULL) {
@@ -173,9 +174,9 @@ linkAST* build_ast(const char* calculations) {
             double value = atof(token);
             stack[stack_index++] = create_link_number(value);
         } else {
-            linkAST* right = stack[--stack_index];
-            linkAST* left = stack[--stack_index];
-            operatorType op;
+            LinkAST* right = stack[--stack_index];
+            LinkAST* left = stack[--stack_index];
+            OperatorType op;
 
             switch (token[0]) {
                 case '+':
@@ -192,7 +193,7 @@ linkAST* build_ast(const char* calculations) {
                     break;
                 default:
                     fprintf(stderr, "Unknown operator: %s\n", token);
-                    free(calculationsCopy);
+                    free(calculations_copy);
                     exit(EXIT_FAILURE);
             }
 
@@ -202,11 +203,11 @@ linkAST* build_ast(const char* calculations) {
     }
 
     free(expression_with_values);
-    free(calculationsCopy);
+    free(calculations_copy);
 
-    linkAST* root = stack[0];
+    LinkAST* root = stack[0];
     
-    printAst(root,0);
+    print_ast(root,0);
 
     return root;
 }

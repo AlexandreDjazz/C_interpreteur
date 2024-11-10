@@ -1,7 +1,7 @@
 #include "header/include.h"
 
-int variableCount=0;
-Variable variableStock[100];
+int variable_count=0;
+Variable variable_stock[100];
 //déclaration du tableau contenant les variables
 
 
@@ -12,7 +12,7 @@ int main(const int ac, char **av) {
         return -1;
     }
     if (ac == 2) {
-        fileInterpret(av[1]);
+        file_interpret(av[1]);
     }
     else
         interactive_mode();

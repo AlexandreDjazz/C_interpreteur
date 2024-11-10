@@ -1,19 +1,19 @@
 #include "header/include.h"
 
-void fileInterpret(const char *nameFile) {
+void file_interpret(const char *file_name) {
     FILE * commands;
-    commands = fopen(nameFile, "r");;
-    char taille[256];
+    commands = fopen(file_name, "r");;
+    char size[256];
 
     if (commands == NULL) {
         perror("Erreur lors de l'ouverture du fichier");
         return;
     }
 
-    while (fgets(taille, sizeof(taille), commands) != NULL) {
-        taille[strcspn(taille, "\n")] = '\0';
-        if (strlen(taille) > 0) {
-            shunting_yard(taille);
+    while (fgets(size, sizeof(size), commands) != NULL) {
+        size[strcspn(size, "\n")] = '\0';
+        if (strlen(size) > 0) {
+            shunting_yard(size);
         }
     }
     fclose(commands);

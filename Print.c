@@ -1,25 +1,38 @@
 #include "header/include.h"
 
 
-void myPrint(const char *commands) {
+void my_print(const char *commands) {
+
     int index=5;
     Token token;
-    while ((token = lexer(&index, commands)).type != TOK_EOF) {
+    token = lexer(&index, commands);
+    if(token.type == TOK_PRT && token.value[0] == '(') {
+        token = lexer(&index, commands);
         if(token.type == TOK_VAR) {
             int good=0;
-            for (int i = 0; i < variableCount; i++) {
-                if (strcmp(token.value, variableStock[i].name) == 0){
-                    printf("la valeur de %s est %f\n", token.value, variableStock[i].value);
+            for (int i = 0; i < variable_count; i++) {
+                if (strcmp(token.value, variable_stock[i].name) == 0){
+                    printf("la valeur de %s est %f\n", token.value, variable_stock[i].value);
                     good = 1;
                     break;
                 }
             }
             if(!good){
                 fprintf(stderr, "Variable '%s' not found\n", token.value);
-                exit(EXIT_FAILURE);
+                //exit(EXIT_FAILURE);
             }
-
+            token = lexer(&index, commands);
+            if(token.type == TOK_PRT && token.value[0] == ')') {
+                return;
+            }
+            else {
+                fprintf(stderr, "Erreur : ')' manquant ! ");
+                //exit(EXIT_FAILURE);
+            }
         }
-
+    }
+    else {
+        fprintf(stderr, "Erreur : '(' manquant ! ");
+        //exit(EXIT_FAILURE);
     }
 }
