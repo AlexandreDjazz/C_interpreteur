@@ -1,12 +1,19 @@
-#include "header/include.h"
+#include "../../header/include.h"
 
-//gestion des caractères illégaux
 int error_character(const char *commands) {
     const char *allowed_char = "><(){}=+*-/ ";
 
     for (int x = 0; commands[x] != '\0'; x++) {
         if (!isalnum(commands[x]) && !strchr(allowed_char, commands[x]))
             return -1;
+    }
+    return 0;
+}
+
+int check_arguments(const int ac) {
+    if (ac > 2) {
+        fprintf(stderr, "Too many arguments\n");
+        return -1;
     }
     return 0;
 }

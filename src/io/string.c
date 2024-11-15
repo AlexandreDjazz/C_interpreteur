@@ -1,4 +1,4 @@
-#include "header/include.h"
+#include "../../header/include.h"
 
 char *initialize_string(char *commands) {
     const size_t length = 1000;
@@ -21,7 +21,7 @@ int interactive_mode(void) {
 
     printf("Tap instructions or \"exit\" to quit\n");
     while (1) {
-        printf(">>");
+        printf(">> ");
 
         commands = initialize_string(commands);
         commands[strcspn(commands, "\n")] = 0;

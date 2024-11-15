@@ -6,12 +6,9 @@
 
 
 // file.c
-long get_file_size(FILE *str);
-char *copy_file(char *commands, FILE *file_commands);
-char *check_and_copy_file(char *commands, char **av);
+void file_interpret(const char *file_name);
 
 // string.c
-int my_strlen(const char *str);
 char *initialize_string(char *commands);
 int interactive_mode(void);
 
@@ -20,22 +17,35 @@ Token lexer(int *index, const char *commands);
 
 // error_handling.c
 int error_character(const char *commands);
+int check_arguments(const int ac);
 int check_parenthesis(const char *commands);
 
 // token.c
-Token isInteger(int position, int *index, const char *commands, Token token);
-Token isVariable(int position, int *index, const char *commands, Token token);
-Token isOperator(int position, int *index, const char *commands, Token token);
-Token isEqual(int position, int *index, const char *commands, Token token);
-Token isParenthesis(int position, int *index, const char *commands, Token token);
-Token isCurlyBracket(int position, int *index, const char *commands, Token token);
-Token get_Token(int *index, const char *commands);
+Token is_integer(int position, int *index, const char *commands, Token token);
+Token is_variable(int position, int *index, const char *commands, Token token);
+Token is_iperator(int position, int *index, const char *commands, Token token);
+Token is_equal(int position, int *index, const char *commands, Token token);
+Token is_parenthesis(int position, int *index, const char *commands, Token token);
+Token is_curlyBracket(int position, int *index, const char *commands, Token token);
+Token is_print(int position, int *index, Token token);
+Token get_token(int *index, const char *commands);
 
 // shunting_yard.c
 int operater_precedence(const char operater);
 void shunting_yard(const char *commands);
 
-//variable.c
+//print.c
+void my_print(const char *commands);
 
+//ast.c
+
+LinkAST* create_link_number(const double value);
+LinkAST* create_link_operator(const OperatorType op, LinkAST* left, LinkAST* right);
+double check_ast(const LinkAST* link);
+void free_ast(LinkAST* link);
+float get_variable_value(const char *name);
+void print_ast(const LinkAST* node, const int indent);
+char* replace_variables_with_values(char *calculations);
+LinkAST* build_ast(const char* calculations);
 
 #endif

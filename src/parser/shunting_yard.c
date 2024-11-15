@@ -1,50 +1,28 @@
-#include "header/include.h"
+#include "../../header/include.h"
 
 //gestion des priorités
 int operater_precedence(const char operater) {
-    if (operater == '+' || operater == '-') {
+    if (operater == '+' || operater == '-')
         return 1;
-    }
-    if (operater == '*' || operater == '/') {
+    if (operater == '*' || operater == '/')
         return 2;
-    }
     return 0;
 }
 
 void shunting_yard(const char *commands) {
-
     Token token;
     int index = 0;
     int index_algo = 0;
     char *algo = malloc(sizeof(char) * (strlen(commands) + 1));
     char *stack = malloc(sizeof(char) * 200);
     int stack_size = 0;
-
-    int check=0;
-    char *varNom = malloc(sizeof(char) * (strlen(commands) + 1));
+    int check = 0;
+    char *var_nom = malloc(sizeof(char) * (strlen(commands) + 1));
 
     while ((token = lexer(&index, commands)).type != TOK_EOF) {
-
-        if (strncmp("print", commands, 5) == 0) {
-                int i = 6;
-                while (*(commands + i) != '\0' && *(commands + i) != ')' && *(commands + i) != '('){
-                    varNom[i - 6] = commands[i];
-                    i++;
-                }
-                varNom[i - 6] = '\0';
-
-                int good = 0;
-                for (int k = 0; k < variableCount; k++) {
-                    if (strcmp(varNom, variableStock[k].name) == 0){
-                        printf("la valeur de %s est %f\n", varNom, variableStock[k].value);
-                        good = 1;
-                    }
-                }
-                if(!good){
-                    printf("Cette variable n'as pas de valeur\n");
-                }
-                free(varNom);
-                return;
+        if (token.type == TOK_PRINT) {
+            my_print(commands);
+            return;
         }
 
         //si token est variable ou entier, envoie dans la sortie
@@ -57,7 +35,7 @@ void shunting_yard(const char *commands) {
 
         //prendre la premier variable comme variable à modifier
         if(token.type == TOK_VAR && check==0) {
-            strcpy(varNom, token.value);
+            strcpy(var_nom, token.value);
             check++;
         }
 
@@ -98,20 +76,26 @@ void shunting_yard(const char *commands) {
     }
     algo[index_algo] = '\0';
 
-    printf("Postfix Expression: %s\n", algo);
-
-    linkAST* ast = build_ast(algo);
-    double result = checkAst(ast);
-    printf("Result: %f\n", result);
+    LinkAST* ast = build_ast(algo);
+    const double result = check_ast(ast);
 
     //création de la variable dans la structure ou modification de sa valeur
-    strcpy(variableStock[variableCount].name, varNom);
-    variableStock[variableCount].value = result;
-    variableCount++;
+    int verif = 0;
+    for (int i = 0; i < variable_count; i++) {
+        if (strcmp(variable_stock[i].name, var_nom) == 0) {
+            variable_stock[i].value = result;
+            verif=1;
+        }
+    }
+    if (!verif) {
+        strcpy(variable_stock[variable_count].name, var_nom);
+        variable_stock[variable_count].value = result;
+        variable_count++;
+    }
 
     free(algo);
     free(stack);
-    freeAst(ast);
-    free(varNom);
+    free_ast(ast);
+    free(var_nom);
 }
 

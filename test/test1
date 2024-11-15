@@ -1,0 +1,8 @@
+un = 1
+deux = 2
+_trois = 3
+Quatre = 4
+
+_DoUz3 = _trois * Quatre
+
+print(_DoUz3)

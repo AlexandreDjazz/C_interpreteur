@@ -8,9 +8,8 @@
 
 #include "prototypes.h"
 #include "structures.h"
-#include "ast.h"
 
-extern int variableCount;
-extern Variable variableStock[100];
+extern int variable_count;
+extern Variable variable_stock[100];
 
 #endif

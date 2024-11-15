@@ -1,5 +1,0 @@
-- Lexer (Analyseur lexical) : Composant qui transforme le code source en une série de tokens.
-- Parser (Analyseur syntaxique) : Composant qui analyse la structure des tokens pour créer une représentation structurée du programme.
-- AST (Arbre de Syntaxe Abstraite) : Structure de données représentant la structure syntaxique du code source.
-- Token : Unité lexicale élémentaire, comme un mot-clé, un identificateur, ou un opérateur.
-- Interpréteur : Programme qui exécute directement les instructions d'un langage de programmation sans les compiler préalablement.
