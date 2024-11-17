@@ -1,0 +1,30 @@
+>> x = 5 print(x)
+Variable 'print' not found
+Variable 'x' not found
+5.000000
+>>
+
+
+
+
+
+>> _deux = 2
+____________________
+AST :
+2
+____________________
+>> print(_deux)
+Variable '' not found
+Error : ')' missing !
+>>
+
+
+
+
+>> _un = 1
+____________________
+AST :
+1
+____________________
+>> print(un)
+PS C:\Users\brice\Documents\GitHub\ESGI\C_interpreteur>

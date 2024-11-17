@@ -1,32 +1,72 @@
 #ifndef STRUCTURES_H
 #define STRUCTURES_H
 
-#include "prototypes.h"
-#include "include.h"
-
 typedef enum TokenType TokenType;
 enum TokenType {
     TOK_VAR, // variable
     TOK_EQL, // equal
     TOK_INT, // integer
-    TOK_OPR, // operator
+    TOK_PLS, // plus
+    TOK_MNS, // minus
+    TOK_MUL, // multiply
+    TOK_DVD, // divide
+    TOK_LOW, // lower
+    TOK_SUP, // superior
     TOK_PRT, // parenthesis
     TOK_CBK, // curly bracket
-    TOK_EOF  // end of file
+    TOK_DBQ, // double quote
+    TOK_EOF, // end of file
+    TOK_PRINT // print
 };
 
-typedef struct Token Token;
-struct Token {
-    char *value;
-    TokenType type;
+typedef enum KEYWORD KEYWORD;
+enum KEYWORD {
+    IF,
+    ELSE,
+    WHILE,
+    FOR
 };
 
 typedef struct {
-        char *data;
-        int top;      // Index du sommet de la pile
-        int capacity; // Capacité maximale de la pile
-    } Stack;
+    char *value;
+    TokenType type;
+} Token;
+
+typedef struct
+{
+    char name[100];
+    float value;
+} Variable;
+
+typedef enum {
+    wayNumber,
+    wayOperator
+} TypeLink;
+
+typedef enum {
+    addOP,
+    subOP,
+    mulOP,
+    divOP
+} OperatorType;
 
 
+typedef struct {
+    double value;
+} NumberLink;
+
+
+typedef struct {
+    OperatorType op;
+    struct linkAST* right;
+    struct linkAST* left;
+} OperatorLink;
+
+
+typedef struct linkAST {
+    TypeLink type;
+    NumberLink* number;
+    OperatorLink* operator;
+} LinkAST;
 
 #endif

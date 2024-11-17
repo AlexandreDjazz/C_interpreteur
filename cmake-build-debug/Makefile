@@ -47,19 +47,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "D:\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "D:\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\C\C_interpreteur
+CMAKE_SOURCE_DIR = C:\Users\brice\Documents\GitHub\ESGI\C_interpreteur
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\C\C_interpreteur\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\brice\Documents\GitHub\ESGI\C_interpreteur\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = D:\C\C_interpreteur\cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	"D:\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -77,7 +77,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	"D:\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\C\C_interpreteur\cmake-build-debug\CMakeFiles D:\C\C_interpreteur\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\brice\Documents\GitHub\ESGI\C_interpreteur\cmake-build-debug\CMakeFiles C:\Users\brice\Documents\GitHub\ESGI\C_interpreteur\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\C\C_interpreteur\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\brice\Documents\GitHub\ESGI\C_interpreteur\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,173 +128,221 @@ interpreteur/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/build
 .PHONY : interpreteur/fast
 
-file.obj: file.c.obj
-.PHONY : file.obj
+src/io/file.obj: src/io/file.c.obj
+.PHONY : src/io/file.obj
 
 # target to build an object file
-file.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/file.c.obj
-.PHONY : file.c.obj
+src/io/file.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/io/file.c.obj
+.PHONY : src/io/file.c.obj
 
-file.i: file.c.i
-.PHONY : file.i
+src/io/file.i: src/io/file.c.i
+.PHONY : src/io/file.i
 
 # target to preprocess a source file
-file.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/file.c.i
-.PHONY : file.c.i
+src/io/file.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/io/file.c.i
+.PHONY : src/io/file.c.i
 
-file.s: file.c.s
-.PHONY : file.s
+src/io/file.s: src/io/file.c.s
+.PHONY : src/io/file.s
 
 # target to generate assembly for a file
-file.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/file.c.s
-.PHONY : file.c.s
+src/io/file.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/io/file.c.s
+.PHONY : src/io/file.c.s
 
-lexer.obj: lexer.c.obj
-.PHONY : lexer.obj
+src/io/string.obj: src/io/string.c.obj
+.PHONY : src/io/string.obj
 
 # target to build an object file
-lexer.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/lexer.c.obj
-.PHONY : lexer.c.obj
+src/io/string.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/io/string.c.obj
+.PHONY : src/io/string.c.obj
 
-lexer.i: lexer.c.i
-.PHONY : lexer.i
+src/io/string.i: src/io/string.c.i
+.PHONY : src/io/string.i
 
 # target to preprocess a source file
-lexer.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/lexer.c.i
-.PHONY : lexer.c.i
+src/io/string.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/io/string.c.i
+.PHONY : src/io/string.c.i
 
-lexer.s: lexer.c.s
-.PHONY : lexer.s
+src/io/string.s: src/io/string.c.s
+.PHONY : src/io/string.s
 
 # target to generate assembly for a file
-lexer.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/lexer.c.s
-.PHONY : lexer.c.s
+src/io/string.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/io/string.c.s
+.PHONY : src/io/string.c.s
 
-main.obj: main.c.obj
-.PHONY : main.obj
+src/lexer/lexer.obj: src/lexer/lexer.c.obj
+.PHONY : src/lexer/lexer.obj
 
 # target to build an object file
-main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/main.c.obj
-.PHONY : main.c.obj
+src/lexer/lexer.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/lexer/lexer.c.obj
+.PHONY : src/lexer/lexer.c.obj
 
-main.i: main.c.i
-.PHONY : main.i
+src/lexer/lexer.i: src/lexer/lexer.c.i
+.PHONY : src/lexer/lexer.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/main.c.i
-.PHONY : main.c.i
+src/lexer/lexer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/lexer/lexer.c.i
+.PHONY : src/lexer/lexer.c.i
 
-main.s: main.c.s
-.PHONY : main.s
+src/lexer/lexer.s: src/lexer/lexer.c.s
+.PHONY : src/lexer/lexer.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/main.c.s
-.PHONY : main.c.s
+src/lexer/lexer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/lexer/lexer.c.s
+.PHONY : src/lexer/lexer.c.s
 
-parser.obj: parser.c.obj
-.PHONY : parser.obj
+src/lexer/token.obj: src/lexer/token.c.obj
+.PHONY : src/lexer/token.obj
 
 # target to build an object file
-parser.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/parser.c.obj
-.PHONY : parser.c.obj
+src/lexer/token.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/lexer/token.c.obj
+.PHONY : src/lexer/token.c.obj
 
-parser.i: parser.c.i
-.PHONY : parser.i
+src/lexer/token.i: src/lexer/token.c.i
+.PHONY : src/lexer/token.i
 
 # target to preprocess a source file
-parser.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/parser.c.i
-.PHONY : parser.c.i
+src/lexer/token.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/lexer/token.c.i
+.PHONY : src/lexer/token.c.i
 
-parser.s: parser.c.s
-.PHONY : parser.s
+src/lexer/token.s: src/lexer/token.c.s
+.PHONY : src/lexer/token.s
 
 # target to generate assembly for a file
-parser.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/parser.c.s
-.PHONY : parser.c.s
+src/lexer/token.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/lexer/token.c.s
+.PHONY : src/lexer/token.c.s
 
-stack.obj: stack.c.obj
-.PHONY : stack.obj
+src/main/main.obj: src/main/main.c.obj
+.PHONY : src/main/main.obj
 
 # target to build an object file
-stack.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/stack.c.obj
-.PHONY : stack.c.obj
+src/main/main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/main/main.c.obj
+.PHONY : src/main/main.c.obj
 
-stack.i: stack.c.i
-.PHONY : stack.i
+src/main/main.i: src/main/main.c.i
+.PHONY : src/main/main.i
 
 # target to preprocess a source file
-stack.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/stack.c.i
-.PHONY : stack.c.i
+src/main/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/main/main.c.i
+.PHONY : src/main/main.c.i
 
-stack.s: stack.c.s
-.PHONY : stack.s
+src/main/main.s: src/main/main.c.s
+.PHONY : src/main/main.s
 
 # target to generate assembly for a file
-stack.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/stack.c.s
-.PHONY : stack.c.s
+src/main/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/main/main.c.s
+.PHONY : src/main/main.c.s
 
-string.obj: string.c.obj
-.PHONY : string.obj
+src/parser/ast.obj: src/parser/ast.c.obj
+.PHONY : src/parser/ast.obj
 
 # target to build an object file
-string.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/string.c.obj
-.PHONY : string.c.obj
+src/parser/ast.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/parser/ast.c.obj
+.PHONY : src/parser/ast.c.obj
 
-string.i: string.c.i
-.PHONY : string.i
+src/parser/ast.i: src/parser/ast.c.i
+.PHONY : src/parser/ast.i
 
 # target to preprocess a source file
-string.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/string.c.i
-.PHONY : string.c.i
+src/parser/ast.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/parser/ast.c.i
+.PHONY : src/parser/ast.c.i
 
-string.s: string.c.s
-.PHONY : string.s
+src/parser/ast.s: src/parser/ast.c.s
+.PHONY : src/parser/ast.s
 
 # target to generate assembly for a file
-string.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/string.c.s
-.PHONY : string.c.s
+src/parser/ast.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/parser/ast.c.s
+.PHONY : src/parser/ast.c.s
 
-token.obj: token.c.obj
-.PHONY : token.obj
+src/parser/shunting_yard.obj: src/parser/shunting_yard.c.obj
+.PHONY : src/parser/shunting_yard.obj
 
 # target to build an object file
-token.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/token.c.obj
-.PHONY : token.c.obj
+src/parser/shunting_yard.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/parser/shunting_yard.c.obj
+.PHONY : src/parser/shunting_yard.c.obj
 
-token.i: token.c.i
-.PHONY : token.i
+src/parser/shunting_yard.i: src/parser/shunting_yard.c.i
+.PHONY : src/parser/shunting_yard.i
 
 # target to preprocess a source file
-token.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/token.c.i
-.PHONY : token.c.i
+src/parser/shunting_yard.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/parser/shunting_yard.c.i
+.PHONY : src/parser/shunting_yard.c.i
 
-token.s: token.c.s
-.PHONY : token.s
+src/parser/shunting_yard.s: src/parser/shunting_yard.c.s
+.PHONY : src/parser/shunting_yard.s
 
 # target to generate assembly for a file
-token.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/token.c.s
-.PHONY : token.c.s
+src/parser/shunting_yard.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/parser/shunting_yard.c.s
+.PHONY : src/parser/shunting_yard.c.s
+
+src/utils/error_handling.obj: src/utils/error_handling.c.obj
+.PHONY : src/utils/error_handling.obj
+
+# target to build an object file
+src/utils/error_handling.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/utils/error_handling.c.obj
+.PHONY : src/utils/error_handling.c.obj
+
+src/utils/error_handling.i: src/utils/error_handling.c.i
+.PHONY : src/utils/error_handling.i
+
+# target to preprocess a source file
+src/utils/error_handling.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/utils/error_handling.c.i
+.PHONY : src/utils/error_handling.c.i
+
+src/utils/error_handling.s: src/utils/error_handling.c.s
+.PHONY : src/utils/error_handling.s
+
+# target to generate assembly for a file
+src/utils/error_handling.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/utils/error_handling.c.s
+.PHONY : src/utils/error_handling.c.s
+
+src/utils/print.obj: src/utils/print.c.obj
+.PHONY : src/utils/print.obj
+
+# target to build an object file
+src/utils/print.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/utils/print.c.obj
+.PHONY : src/utils/print.c.obj
+
+src/utils/print.i: src/utils/print.c.i
+.PHONY : src/utils/print.i
+
+# target to preprocess a source file
+src/utils/print.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/utils/print.c.i
+.PHONY : src/utils/print.c.i
+
+src/utils/print.s: src/utils/print.c.s
+.PHONY : src/utils/print.s
+
+# target to generate assembly for a file
+src/utils/print.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\interpreteur.dir\build.make CMakeFiles/interpreteur.dir/src/utils/print.c.s
+.PHONY : src/utils/print.c.s
 
 # Help Target
 help:
@@ -305,27 +353,33 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... interpreteur
-	@echo ... file.obj
-	@echo ... file.i
-	@echo ... file.s
-	@echo ... lexer.obj
-	@echo ... lexer.i
-	@echo ... lexer.s
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
-	@echo ... parser.obj
-	@echo ... parser.i
-	@echo ... parser.s
-	@echo ... stack.obj
-	@echo ... stack.i
-	@echo ... stack.s
-	@echo ... string.obj
-	@echo ... string.i
-	@echo ... string.s
-	@echo ... token.obj
-	@echo ... token.i
-	@echo ... token.s
+	@echo ... src/io/file.obj
+	@echo ... src/io/file.i
+	@echo ... src/io/file.s
+	@echo ... src/io/string.obj
+	@echo ... src/io/string.i
+	@echo ... src/io/string.s
+	@echo ... src/lexer/lexer.obj
+	@echo ... src/lexer/lexer.i
+	@echo ... src/lexer/lexer.s
+	@echo ... src/lexer/token.obj
+	@echo ... src/lexer/token.i
+	@echo ... src/lexer/token.s
+	@echo ... src/main/main.obj
+	@echo ... src/main/main.i
+	@echo ... src/main/main.s
+	@echo ... src/parser/ast.obj
+	@echo ... src/parser/ast.i
+	@echo ... src/parser/ast.s
+	@echo ... src/parser/shunting_yard.obj
+	@echo ... src/parser/shunting_yard.i
+	@echo ... src/parser/shunting_yard.s
+	@echo ... src/utils/error_handling.obj
+	@echo ... src/utils/error_handling.i
+	@echo ... src/utils/error_handling.s
+	@echo ... src/utils/print.obj
+	@echo ... src/utils/print.i
+	@echo ... src/utils/print.s
 .PHONY : help
 
 
