@@ -1,0 +1,15 @@
+x=5
+y=x+10
+print(x)
+print(y)
+y=10
+print(y)
+annonce = "bonjour tout le monde"
+print(annonce)
+annonce = "Hello la team"
+print(annonce)
+print(10)
+print(-12)
+print("test")
+print("_123tESt")
+print(-12-5)

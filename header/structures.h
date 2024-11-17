@@ -16,7 +16,12 @@ enum TokenType {
     TOK_CBK, // curly bracket
     TOK_DBQ, // double quote
     TOK_EOF, // end of file
+<<<<<<< Updated upstream
     TOK_PRINT // print
+=======
+    TOK_PRINT, // print
+    TOK_STRING // string
+>>>>>>> Stashed changes
 };
 
 typedef enum KEYWORD KEYWORD;
@@ -26,6 +31,7 @@ enum KEYWORD {
     WHILE,
     FOR
 };
+<<<<<<< Updated upstream
 
 typedef struct {
     char *value;
@@ -35,8 +41,56 @@ typedef struct {
 typedef struct
 {
     char name[100];
+=======
+
+typedef struct {
+    char *value;
+    TokenType type;
+} Token;
+
+typedef struct
+{
+    char* name;
+>>>>>>> Stashed changes
     float value;
-} Variable;
+} VariableInt;
+
+typedef struct
+{
+    char* name;
+    char* value;
+} VariableString;
+
+typedef enum {
+    wayNumber,
+    wayOperator
+} TypeLink;
+
+typedef enum {
+    addOP,
+    subOP,
+    mulOP,
+    divOP
+} OperatorType;
+
+
+typedef struct {
+    double value;
+} NumberLink;
+
+
+typedef struct {
+    OperatorType op;
+    struct linkAST* right;
+    struct linkAST* left;
+} OperatorLink;
+
+
+typedef struct linkAST {
+    TypeLink type;
+    NumberLink* number;
+    OperatorLink* operator;
+} LinkAST;
 
 typedef enum {
     wayNumber,

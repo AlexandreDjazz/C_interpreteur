@@ -1,8 +1,18 @@
 #include "../../header/include.h"
+<<<<<<< Updated upstream
 
 int variable_count = 0;
 Variable variable_stock[100];
 //déclaration du tableau contenant les variables
+=======
+
+
+//déclaration du tableau contenant les variables
+int variable_int_count=0;
+VariableInt variable_int_stock[100];
+int variable_string_count=0;
+VariableString variable_string_stock[100];
+>>>>>>> Stashed changes
 
 int main(const int ac, char **av) {
     char *commands = NULL;

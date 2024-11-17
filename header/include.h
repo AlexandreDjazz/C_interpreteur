@@ -9,7 +9,9 @@
 #include "prototypes.h"
 #include "structures.h"
 
-extern int variable_count;
-extern Variable variable_stock[100];
+extern int variable_int_count;
+extern int variable_string_count;
+extern VariableInt variable_int_stock[100];
+extern VariableString variable_string_stock[100];
 
 #endif

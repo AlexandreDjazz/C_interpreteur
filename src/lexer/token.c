@@ -17,14 +17,22 @@ Token is_integer(int position, int *index, const char *commands, Token token) {
 Token is_double_quote(int position, int *index, const char *commands, Token token) {
     int x = 0;
     position++;
+<<<<<<< Updated upstream
     while (commands[position] != '"') {
+=======
+    while (commands[position] != '"' && commands[position] != '\0') {
+>>>>>>> Stashed changes
         token.value = realloc(token.value, sizeof(char) * (x + 1));
         token.value[x] = commands[position];
         position++;
         x++;
     }
     token.value[x] = '\0';
+<<<<<<< Updated upstream
     token.type = TOK_DBQ;
+=======
+    token.type = TOK_STRING;
+>>>>>>> Stashed changes
     *index = position;
     return token;
 }
@@ -115,6 +123,8 @@ Token is_print(int position, int *index, Token token) {
     *index = position;
     return token;
 }
+
+
 
 Token get_token(int *index, const char *commands) {
     Token token = {NULL, TOK_EOF};
