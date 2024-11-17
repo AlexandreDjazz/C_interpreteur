@@ -67,7 +67,6 @@ int check_parenthesis(const char *commands) {
 
 int check_commands_error(char const *commands) {
     if (check_error_character(commands)) {
-<<<<<<< Updated upstream
         printf("Wrong character detected\n");
         return -1;
     }
@@ -81,21 +80,6 @@ int check_commands_error(char const *commands) {
     }
     if (check_operator_usage(commands)) {
         printf("Bad operator usage\n");
-=======
-        fprintf(stderr,"Wrong character detected\n");
-        return -1;
-    }
-    if (check_parenthesis(commands)) {
-        fprintf(stderr,"Incorrect use of parentheses\n");
-        return -1;
-    }
-    if (check_only_special_characters(commands)) {
-        fprintf(stderr,"Only special characters\n");
-        return -1;
-    }
-    if (check_operator_usage(commands)) {
-        fprintf(stderr,"Bad operator usage\n");
->>>>>>> Stashed changes
         return -1;
     }
     return 0;

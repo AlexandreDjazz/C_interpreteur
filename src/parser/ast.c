@@ -67,15 +67,9 @@ void free_ast(LinkAST* link) {
 
 //envoie nom de la variabl pour récup sa valeur
 float get_variable_value(const char *name) {
-<<<<<<< Updated upstream
-    for (int i = 0; i < variable_count; i++) {
-        if (strcmp(variable_stock[i].name, name) == 0)
-            return variable_stock[i].value;
-=======
     for (int i = 0; i < variable_int_count; i++) {
         if (strcmp(variable_int_stock[i].name, name) == 0)
             return variable_int_stock[i].value;
->>>>>>> Stashed changes
     }
     fprintf(stderr, "Variable '%s' not found\n", name);
     return 0.0;

@@ -2,10 +2,7 @@
 
 void my_print(const char *commands) {
     int index = 5;
-<<<<<<< Updated upstream
-=======
     int valid = 0;
->>>>>>> Stashed changes
     Token token;
     token = lexer(&index, commands);
 
@@ -18,74 +15,39 @@ void my_print(const char *commands) {
 
         if (token.type == TOK_INT)
             printf("%s\n", token.value);
-<<<<<<< Updated upstream
-        else if (token.type == TOK_DBQ)
+        else if (token.type == TOK_STRING)
             printf("%s\n", token.value);
         else if (token.type == TOK_VAR) {
-            int valid = 0;
-            for (int i = 0; i < variable_count; i++) {
-                if (strcmp(token.value, variable_stock[i].name) == 0) {
-                    if (variable_stock[i].value == (int)variable_stock[i].value)
-                        printf("La valeur de %s est %d\n", token.value, (int)variable_stock[i].value);
+            for (int i = 0; i < variable_int_count; i++) {
+                if (strcmp(token.value, variable_int_stock[i].name) == 0) {
+                    if (variable_int_stock[i].value == (int)variable_int_stock[i].value)
+                        printf("La valeur de %s est %d\n", token.value, (int)variable_int_stock[i].value);
                     else
-                        printf("La valeur de %s est %.3g\n", token.value, variable_stock[i].value);
+                        printf("La valeur de %s est %.3g\n", token.value, variable_int_stock[i].value);
                     valid = 1;
                     break;
                 }
             }
 
+            for (int i = 0; i < variable_string_count; i++) {
+                if (strcmp(token.value, variable_string_stock[i].name) == 0) {
+                    printf("La valeur de %s est %s\n", token.value, variable_string_stock[i].value);
+                    valid = 1;
+                    break;
+                }
+            }
             if (!valid)
                 fprintf(stderr, "Variable '%s' not found\n", token.value);
             token = lexer(&index, commands);
-=======
-        else if (token.type == TOK_STRING){
-            printf("%s\n", token.value);
-            index++;
-        }
-        else if (token.type == TOK_VAR) {
-                for (int i = 0; i < variable_int_count; i++) {
-                    if (strcmp(token.value, variable_int_stock[i].name) == 0) {
-                        if (variable_int_stock[i].value == (int)variable_int_stock[i].value)
-                            printf("La valeur de %s est %d\n", token.value, (int)variable_int_stock[i].value);
-                        else
-                            printf("La valeur de %s est %.3g\n", token.value, variable_int_stock[i].value);
-                        valid = 1;
-                        break;
-                    }
-                }
-
-                for (int i = 0; i < variable_string_count; i++) {
-                    if (strcmp(token.value, variable_string_stock[i].name) == 0) {
-                        printf("La valeur de %s est %s\n", token.value, variable_string_stock[i].value);
-                        valid = 1;
-                        break;
-                    }
-                }
-                if (!valid)
-                    fprintf(stderr, "Variable '%s' not found\n", token.value);
-                token = lexer(&index, commands);
-
-
-
-
-        }
->>>>>>> Stashed changes
-
             if (token.type == TOK_PRT && token.value[0] == ')')
                 return;
             fprintf(stderr, "Error : ')' missing ! \n");
-<<<<<<< Updated upstream
         }
-    }
-    else
-        fprintf(stderr, "Error : '(' missing ! \n");
-=======
-
-
     }
     else
         fprintf(stderr, "Error : '(' missing ! \n");
 }
+
 
 void change_variable_int(const char* name, const float value) {
     for (int i = 0; i < variable_int_count; i++) {
@@ -105,7 +67,6 @@ void change_variable_int(const char* name, const float value) {
 }
 
 void change_variable_string(const char* name, const char* value) {
-
     for (int i = 0; i < variable_string_count; i++) {
         if (strcmp(variable_string_stock[i].name, name) == 0) {
             variable_string_stock[i].value = strdup(value);
@@ -120,5 +81,4 @@ void change_variable_string(const char* name, const char* value) {
     else{
         printf("limite du nombre de variable atteinte\n");
     }
->>>>>>> Stashed changes
 }

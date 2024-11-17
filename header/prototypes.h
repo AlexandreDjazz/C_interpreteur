@@ -52,15 +52,4 @@ void print_ast(const LinkAST* node, const int indent);
 char* replace_variables_with_values(char *calculations);
 LinkAST* build_ast(const char* calculations);
 
-//ast.c
-
-LinkAST* create_link_number(const double value);
-LinkAST* create_link_operator(const OperatorType op, LinkAST* left, LinkAST* right);
-double check_ast(const LinkAST* link);
-void free_ast(LinkAST* link);
-float get_variable_value(const char *name);
-void print_ast(const LinkAST* node, const int indent);
-char* replace_variables_with_values(char *calculations);
-LinkAST* build_ast(const char* calculations);
-
 #endif

@@ -17,10 +17,7 @@ void shunting_yard(const char *commands) {
     char *stack = malloc(sizeof(char) * 200);
     int stack_size = 0;
     int check = 0;
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
     char *var_nom = malloc(sizeof(char) * (strlen(commands) + 1));
     char *string = malloc(sizeof(char) * (strlen(commands) + 1));
 
@@ -87,35 +84,13 @@ void shunting_yard(const char *commands) {
     }
     algo[index_algo] = '\0';
 
-<<<<<<< Updated upstream
-=======
-
-
-
-
->>>>>>> Stashed changes
     LinkAST* ast = build_ast(algo);
     const double result = check_ast(ast);
 
     //création de la variable dans la structure ou modification de sa valeur
-<<<<<<< Updated upstream
-    int verif = 0;
-    for (int i = 0; i < variable_count; i++) {
-        if (strcmp(variable_stock[i].name, var_nom) == 0) {
-            variable_stock[i].value = result;
-            verif = 1;
-        }
-    }
-    if (!verif) {
-        strcpy(variable_stock[variable_count].name, var_nom);
-        variable_stock[variable_count].value = result;
-        variable_count++;
-    }
-
-=======
     change_variable_int(var_nom,result);
+
     free(string);
->>>>>>> Stashed changes
     free(algo);
     free(stack);
     free_ast(ast);

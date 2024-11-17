@@ -10,6 +10,3 @@ annonce = "Hello la team"
 print(annonce)
 print(10)
 print(-12)
-print("test")
-print("_123tESt")
-print(-12-5)

@@ -1,17 +1,10 @@
-<<<<<<< Updated upstream
-"C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\brice\Documents\GitHub\ESGI\C_interpreteur -B C:\Users\brice\Documents\GitHub\ESGI\C_interpreteur\cmake-build-debug
--- Configuring done (0.1s)
--- Generating done (0.0s)
--- Build files have been written to: C:/Users/brice/Documents/GitHub/ESGI/C_interpreteur/cmake-build-debug
-=======
-"C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\varda\Documents\GitHub\C_interpreteur -B C:\Users\varda\Documents\GitHub\C_interpreteur\cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\varda\Desktop\C_interpreteur-main -B C:\Users\varda\Desktop\C_interpreteur-main\cmake-build-debug
 -- The C compiler identification is GNU 13.1.0
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Check for working C compiler: C:/Program Files/JetBrains/CLion 2024.2.2/bin/mingw/bin/gcc.exe - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Configuring done (2.0s)
+-- Configuring done (2.7s)
 -- Generating done (0.0s)
--- Build files have been written to: C:/Users/varda/Documents/GitHub/C_interpreteur/cmake-build-debug
->>>>>>> Stashed changes
+-- Build files have been written to: C:/Users/varda/Desktop/C_interpreteur-main/cmake-build-debug
