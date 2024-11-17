@@ -2,6 +2,12 @@
 
 Token is_integer(int position, int *index, const char *commands, Token token) {
     int x = 0;
+
+    if (commands[position] == '-') {
+        position++;
+        x++;
+        token.value[0] = '-';
+    }
     while (isdigit(commands[position]) || commands[position] == '.') {
         token.value = realloc(token.value, sizeof(char) * (x + 1));
         token.value[x] = commands[position];
@@ -128,7 +134,7 @@ Token get_token(int *index, const char *commands) {
         return token = is_double_quote(position, index, commands, token);
     if (strncmp(commands, "print", 5) == 0 && position == 0)
         return token = is_print(position, index, token);
-    if (isdigit(commands[position]))
+    if (isdigit(commands[position]) || (commands[position] == '-' && isdigit(commands[position + 1])))
         return token = is_integer(position, index, commands, token);
     if (isalpha(commands[position]) || commands[position] == '_')
         return token = is_variable(position, index, commands, token);

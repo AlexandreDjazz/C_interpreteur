@@ -19,6 +19,7 @@ int check_only_special_characters(const char *commands);
 int check_arguments(const int ac);
 int check_operator_usage(const char *commands);
 int check_parenthesis(const char *commands);
+int check_variable_name(const char *commands);
 int check_commands_error(char const *commands);
 
 // token.c

@@ -28,3 +28,7 @@ AST :
 ____________________
 >> print(un)
 PS C:\Users\brice\Documents\GitHub\ESGI\C_interpreteur>
+
+
+
+Si on appuie juste sur entrée, réafffiche le prompt

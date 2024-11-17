@@ -65,6 +65,12 @@ int check_parenthesis(const char *commands) {
     return (left_parenthesis - right_parenthesis);
 }
 
+int check_variable_name(const char *commands) {
+    if (isdigit(commands[0]))
+        return -1;
+    return 0; 
+}
+
 int check_commands_error(char const *commands) {
     if (check_error_character(commands)) {
         printf("Wrong character detected\n");
@@ -80,6 +86,10 @@ int check_commands_error(char const *commands) {
     }
     if (check_operator_usage(commands)) {
         printf("Bad operator usage\n");
+        return -1;
+    }
+    if (check_variable_name(commands)) {
+        printf("Variable cannot start by number\n");
         return -1;
     }
     return 0;

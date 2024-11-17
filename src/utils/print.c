@@ -4,6 +4,17 @@ void my_print(const char *commands) {
     int index = 5;
     Token token;
     token = lexer(&index, commands);
+    int count = 0;
+
+    for (int x = 0; commands[x]; x++) {
+        if (commands[x] == '-')
+            count++;
+    }
+
+    if (count > 1) {
+        fprintf(stderr, "Too many - operator in : \"%s\"\n", commands);
+        return;
+    }
 
     if (token.type == TOK_PRT && token.value[0] == '(') {
         token = lexer(&index, commands);

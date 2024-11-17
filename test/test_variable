@@ -1,0 +1,13 @@
+a = 10
+variable = 15
+_var = a + 90
+Ma-variabl3 = (a * 4) / 5
+calcul = ((5 * 5) / 4 * (3 - 2)) + (16 / 8.5) - 4
+TEST = 42.84
+
+print(a)
+print(variable)
+print(_var)
+print(Ma-variabl3)
+print(calcul)
+print(TEST)
