@@ -1,11 +1,11 @@
-NAME            =    c_interpreter
+NAME			=	c_interpreter
 
-DIR_IO          =    src/io/
-DIR_LEXER       =    src/lexer/
-DIR_MAIN        =    src/main/
-DIR_PARSER      =    src/parser/
-DIR_UTILS       =    src/utils/
-DIR_OBJ         =    obj/
+DIR_IO			=	src/io/
+DIR_LEXER		=	src/lexer/
+DIR_MAIN		=	src/main/
+DIR_PARSER		=	src/parser/
+DIR_UTILS		=	src/utils/
+DIR_OBJ			=	obj/
 
 SRC				=	$(DIR_MAIN)main.c \
 					$(DIR_IO)file.c \
@@ -34,9 +34,11 @@ $(DIR_OBJ)%.o:	%.c
 clean:
 				@echo "Removing .o files ..."
 				@for /R $(DIR_OBJ) %%f in (*.o) do del "%%f"
-				@if exist c_interpreter.exe del c_interpreter.exe
+				@if exist "$(NAME)".exe del "$(NAME)".exe
 
 fclean:
 				@echo "Removing obj directory ..."
 				@if exist "$(DIR_OBJ)" rmdir /S /Q "$(DIR_OBJ)"
-				@if exist c_interpreter.exe del c_interpreter.exe
+				@if exist "$(NAME)".exe del "$(NAME)".exe
+
+re:				fclean all

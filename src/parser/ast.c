@@ -50,9 +50,8 @@ double check_ast(const LinkAST* link) {
             return left / right;
         default:
             fprintf(stderr, "unknown opérator\n");
-            exit(EXIT_FAILURE);
+            return -10001;
     }
-    return 0;
 }
 
 // libere la mémoire
@@ -95,8 +94,12 @@ void print_ast(const LinkAST* node, const int indent) {
         print_ast(node->operator->left, indent + 1);
         print_ast(node->operator->right, indent + 1);
 
-    } else if (node->type == wayNumber)
-        printf("%f\n", node->number->value);
+    } else if (node->type == wayNumber) {
+        if (node->number->value == (int)node->number->value)
+            printf("%d\n", (int)node->number->value);
+        else
+            printf("%.3g\n", node->number->value);
+    }
 }
 
 //changer la variable en valeur
@@ -165,7 +168,6 @@ LinkAST* build_ast(const char* calculations) {
                     free(calculations_copy);
                     exit(EXIT_FAILURE);
             }
-
             stack[stack_index++] = create_link_operator(op, left, right);
         }
         token = strtok(NULL, " ");
@@ -174,7 +176,9 @@ LinkAST* build_ast(const char* calculations) {
     free(expression_with_values);
     free(calculations_copy);
     LinkAST* root = stack[0];
+    printf("____________________\nAST :\n");
     print_ast(root,0);
+    printf("____________________\n");
 
     return root;
 }

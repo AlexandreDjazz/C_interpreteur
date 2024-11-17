@@ -1,8 +1,8 @@
-un = 1
-deux = 2
-_trois = 3
-Quatre = 4
+x = 10
+y = x + 5
 
-_DoUz3 = _trois * Quatre
+print(y)
 
-print(_DoUz3)
+
+>> a = 2.5
+2.000000

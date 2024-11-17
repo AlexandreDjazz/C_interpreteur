@@ -1,7 +1,7 @@
 #include "../../header/include.h"
 
-int error_character(const char *commands) {
-    const char *allowed_char = "><(){}=+*-/ ";
+int check_error_character(const char *commands) {
+    const char *allowed_char = "\"><(){}=+*-/._ ";
 
     for (int x = 0; commands[x] != '\0'; x++) {
         if (!isalnum(commands[x]) && !strchr(allowed_char, commands[x]))
@@ -10,10 +10,44 @@ int error_character(const char *commands) {
     return 0;
 }
 
+int check_only_special_characters(const char *commands) {
+    const char *allowed_char = "><(){}=+-*/";
+
+    for (int x = 0; commands[x] != '\0'; x++) {
+        if (isalnum(commands[x]))
+            return 0;
+
+        if (!strchr(allowed_char, commands[x]))
+            return 0;
+    }
+
+    return -1;
+}
+
 int check_arguments(const int ac) {
     if (ac > 2) {
         fprintf(stderr, "Too many arguments\n");
         return -1;
+    }
+    return 0;
+}
+
+int check_operator_usage(const char *commands) {
+    const char *operators = "+-*/";
+
+    for (int x = 0; commands[x] != '\0'; x++) {
+        if (strchr(operators, commands[x])) {
+            if (commands[x + 1] == '\0' ||
+                (!isalnum(commands[x + 1]) && commands[x + 1] != commands[x] && commands[x + 1] != '=' && commands[x + 1] != ' ')) {
+                return -1;
+                }
+        }
+        if (commands[x] == '=') {
+            if (commands[x + 1] == '\0' || (!isalnum(commands[x + 1]) && commands[x + 1] != ' ' && commands[x + 1] != '('))
+                return -1;
+            if (commands[x + 1] == ' ' && commands[x + 2] == '\0' && !isalnum(commands[x + 2]) && commands[x + 2] != '(')
+                return -1;
+        }
     }
     return 0;
 }
@@ -29,4 +63,24 @@ int check_parenthesis(const char *commands) {
             right_parenthesis++;
     }
     return (left_parenthesis - right_parenthesis);
+}
+
+int check_commands_error(char const *commands) {
+    if (check_error_character(commands)) {
+        printf("Wrong character detected\n");
+        return -1;
+    }
+    if (check_parenthesis(commands)) {
+        printf("Incorrect use of parentheses\n");
+        return -1;
+    }
+    if (check_only_special_characters(commands)) {
+        printf("Only special characters\n");
+        return -1;
+    }
+    if (check_operator_usage(commands)) {
+        printf("Bad operator usage\n");
+        return -1;
+    }
+    return 0;
 }

@@ -1,9 +1,7 @@
 #ifndef PROTOTYPES_H
 #define PROTOTYPES_H
 
-
 #include "structures.h"
-
 
 // file.c
 void file_interpret(const char *file_name);
@@ -16,12 +14,16 @@ int interactive_mode(void);
 Token lexer(int *index, const char *commands);
 
 // error_handling.c
-int error_character(const char *commands);
+int check_error_character(const char *commands);
+int check_only_special_characters(const char *commands);
 int check_arguments(const int ac);
+int check_operator_usage(const char *commands);
 int check_parenthesis(const char *commands);
+int check_commands_error(char const *commands);
 
 // token.c
 Token is_integer(int position, int *index, const char *commands, Token token);
+Token is_double_quote(int position, int *index, const char *commands, Token token);
 Token is_variable(int position, int *index, const char *commands, Token token);
 Token is_iperator(int position, int *index, const char *commands, Token token);
 Token is_equal(int position, int *index, const char *commands, Token token);

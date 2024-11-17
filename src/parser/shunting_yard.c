@@ -34,13 +34,13 @@ void shunting_yard(const char *commands) {
         }
 
         //prendre la premier variable comme variable à modifier
-        if(token.type == TOK_VAR && check==0) {
+        if (token.type == TOK_VAR && !check) {
             strcpy(var_nom, token.value);
             check++;
         }
 
         //envoie de = à l'AST
-        if(token.type == TOK_EQL) {
+        if (token.type == TOK_EQL) {
             algo[index_algo++] = '=';
             algo[index_algo++] = ' ';
         }
@@ -58,7 +58,7 @@ void shunting_yard(const char *commands) {
             }
         }
 
-        //gestion des opérateurs (voir schéma wikipédia)
+        //gestion des opérateurs
         if (token.type == TOK_PLS || token.type == TOK_MNS || token.type == TOK_MUL || token.type == TOK_DVD) {
             const int precedence = operater_precedence(token.value[0]);
             while (stack_size > 0 && operater_precedence(stack[stack_size - 1]) >= precedence) {
@@ -84,7 +84,7 @@ void shunting_yard(const char *commands) {
     for (int i = 0; i < variable_count; i++) {
         if (strcmp(variable_stock[i].name, var_nom) == 0) {
             variable_stock[i].value = result;
-            verif=1;
+            verif = 1;
         }
     }
     if (!verif) {
@@ -98,4 +98,3 @@ void shunting_yard(const char *commands) {
     free_ast(ast);
     free(var_nom);
 }
-

@@ -14,19 +14,27 @@ enum TokenType {
     TOK_SUP, // superior
     TOK_PRT, // parenthesis
     TOK_CBK, // curly bracket
-    TOK_EOF,  // end of file
+    TOK_DBQ, // double quote
+    TOK_EOF, // end of file
     TOK_PRINT // print
 };
 
-typedef struct Token Token;
-struct Token {
+typedef enum KEYWORD KEYWORD;
+enum KEYWORD {
+    IF,
+    ELSE,
+    WHILE,
+    FOR
+};
+
+typedef struct {
     char *value;
     TokenType type;
-};
+} Token;
 
 typedef struct
 {
-    char name[10];
+    char name[100];
     float value;
 } Variable;
 

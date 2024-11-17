@@ -1,18 +1,11 @@
 #include "../../header/include.h"
 
 char *initialize_string(char *commands) {
-    const size_t length = 1000;
+    const size_t length = 1024;
     char instruction[length];
-    int size = 0;
 
     fgets(instruction, (int)length, stdin);
-    size = strlen(instruction);
-    commands = malloc(sizeof(char) * (size + 1));
-
-    for (int x = 0; x < size; x++)
-        commands[x] = instruction[x];
-    commands[size] = '\0';
-
+    commands = strdup(instruction);
     return commands;
 }
 
@@ -28,12 +21,13 @@ int interactive_mode(void) {
 
         if (!strcmp(commands, "exit") || !strcmp(commands, "EXIT"))
             break;
-        if (error_character(commands) == -1)
-            printf("Wrong character detected\n");
-        if (check_parenthesis(commands))
-            printf("Incorrect use of parentheses\n");
-        else
-            shunting_yard(commands);
+        if (!strcmp(commands, "exot")) {
+            printf("You spelled it wrong, but it happened to me 1000 times.");
+            break;
+        }
+        if (check_commands_error(commands))
+            continue;
+        shunting_yard(commands);
     }
     free(commands);
     return 0;
