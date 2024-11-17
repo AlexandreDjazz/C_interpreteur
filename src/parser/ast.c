@@ -112,13 +112,11 @@ char* replace_variables_with_values(char *calculations) {
         if (isalpha(token[0])) {
             const float value = get_variable_value(token);
             char value_str[20];
-
             sprintf(value_str, "%f", value);
             strcat(result, value_str);
         }
         else
             strcat(result, token);
-
         strcat(result, " ");
         token = strtok(NULL, " ");
     }

@@ -8,6 +8,6 @@ TEST = 42.84
 print(a)
 print(variable)
 print(_var)
-print(Ma-variabl3)
+print(Ma-variabl3) # type: ignore
 print(calcul)
 print(TEST)
